@@ -1,8 +1,9 @@
-import Cta from '@/components/self/cta'
 import React from 'react'
 
-export const page = () => {
+const page = () => {
   return (
-   <Cta/>
+    <div>page</div>
   )
 }
+
+export default page
