@@ -30,6 +30,7 @@ export default function RootLayout({ children }) {
                 <section className="relative w-full md:w-[960px] flex flex-col items-center justify-center bg-neutral-200 dark:bg-dark-blue rounded border border-neutral-700">
                   <Nav />
                   {children}
+                  
                 </section>
               </main>
             </div>

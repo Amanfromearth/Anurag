@@ -3,6 +3,7 @@
 import Image from "next/image";
 import useSound from "use-sound";
 import { useState, useCallback } from "react";
+import Link from "next/link";
 
 const Nav = () => {
   const [play] = useSound("/click2.mp3");
@@ -17,20 +18,22 @@ const Nav = () => {
     setTimeout(() => {
       window.location.href = url;
     }, 300);
-  }, [play, isLoading]);
+  }, [play]); // Removed isLoading from dependencies
 
   return (
     <nav className="w-full sticky top-0 z-50 h-16 flex items-center justify-between px-4 py-4 md:px-8 text-black dark:text-white md:text-xl bg-neutral-200 dark:bg-dark-blue border-b border-neutral-700">
       <NavLink href="/" onClick={handleClick}>
         Projects
       </NavLink>
-      <Image
-        className="h-full w-auto"
-        src="/logo.png"
-        width={500}
-        height={500}
-        alt="Logo"
-      />
+      <a onClick={(e) => handleClick(e, "/")} className="h-full group" href="/">
+        <Image
+          className="h-full w-auto group-hover:rotate-180 ease-in-out duration-500"
+          src="/logo.png"
+          width={500}
+          height={500}
+          alt="Logo"
+        />
+      </a>
       <NavLink href="/about" onClick={handleClick}>
         About me
       </NavLink>
