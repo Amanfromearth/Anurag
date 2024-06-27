@@ -4,7 +4,7 @@ import React from "react";
 const page = () => {
   return (
     <section>
-      <div className="w-full">
+      <div className="w-full border-b border-neutral-300">
         <Image src="/profile-pic2.jpg" width={1024} height={1024} />
       </div>
       <div className=" space-y-8 p-8 mt-8 w-[100%] md:w-[75%] leading-7 text-black dark:text-slate-300 text-lg md:text-2xl font-normal">

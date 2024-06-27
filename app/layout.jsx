@@ -23,8 +23,8 @@ export default function RootLayout({ children }) {
         >
           <div className="fixed inset-0 -z-10 bg-[radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]">
             <div className="relative h-screen w-full overflow-auto">
-              <main className="flex h-full w-full flex-col items-center justify-between px-5 py-24">
-                <div className="absolute top-7 right-7">
+              <main className="flex h-full w-full flex-col items-center justify-between px-2 py-24">
+                <div className="absolute top-7 hidden md:block right-7">
                   <ModeToggle />
                 </div>
                 <section className="relative w-full md:w-[960px] flex flex-col items-center justify-center bg-neutral-200 dark:bg-dark-blue rounded border border-neutral-700">
