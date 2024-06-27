@@ -1,7 +1,9 @@
 
 const skills = () => {
   return (
-    <div>skills</div>
+    <section className="w-full">
+      
+    </section>
   )
 }
 

@@ -1,44 +1,52 @@
 "use client";
+
 import Image from "next/image";
 import useSound from "use-sound";
+import { useState, useCallback } from "react";
 
 const Nav = () => {
   const [play] = useSound("/click2.mp3");
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleClick = (event, url) => {
+  const handleClick = useCallback((event, url) => {
     event.preventDefault();
+    if (isLoading) return;
+    
+    setIsLoading(true);
     play();
     setTimeout(() => {
       window.location.href = url;
     }, 300);
-  };
+  }, [play, isLoading]);
 
   return (
-    <nav className="w-full text-white md:text-xl inline-flex absolute px-4 py-4 md:px-8 items-center justify-between top-0 h-16 border-b border-neutral-700">
-      <a
-        href="/about"
-        onClick={(e) => handleClick(e, "/about")}
-        className="group flex flex-col cursor-pointer"
-      >
+    <nav className="w-full sticky top-0 z-50 h-16 flex items-center justify-between px-4 py-4 md:px-8 text-black dark:text-white md:text-xl bg-neutral-200 dark:bg-dark-blue border-b border-neutral-700">
+      <NavLink href="/" onClick={handleClick}>
         Projects
-        <div className="w-0 h-[2px] bg-white group-hover:w-full transition-all ease-in-out duration-300" />
-      </a>
+      </NavLink>
       <Image
-        className="h-full w-fit rounded-sm"
+        className="h-full w-auto"
         src="/logo.png"
         width={500}
         height={500}
+        alt="Logo"
       />
-      <a
-        href="/"
-        onClick={(e) => handleClick(e, "/")}
-        className="group flex flex-col cursor-pointer"
-      >
+      <NavLink href="/about" onClick={handleClick}>
         About me
-        <div className="w-0 h-[2px] bg-white group-hover:w-full ease-in-out transition-all duration-300" />
-      </a>
+      </NavLink>
     </nav>
   );
 };
+
+const NavLink = ({ href, onClick, children }) => (
+  <a
+    href={href}
+    onClick={(e) => onClick(e, href)}
+    className="group flex flex-col cursor-pointer"
+  >
+    {children}
+    <div className="w-0 h-[2px] bg-black dark:bg-white group-hover:w-full transition-all ease-in-out duration-300" />
+  </a>
+);
 
 export default Nav;
