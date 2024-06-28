@@ -3,7 +3,8 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import ModeToggle from "@/components/ui/modal-toggle";
 import Nav from "@/components/self/Nav";
-
+import Script from 'next/script'
+import mixpanel from 'mixpanel-browser';
 const inter = DM_Sans({ subsets: ["latin"] });
 
 export const metadata = {
@@ -12,6 +13,7 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  mixpanel.init('012fb6bb89fb114cdd3ec8c4271829f1', {debug: true, track_pageview: true, persistence: 'localStorage'});
   return (
     <html lang="en" suppressHydrationWarning >
       <body className={`${inter.className}`}>
@@ -36,6 +38,7 @@ export default function RootLayout({ children }) {
             </div>
           </div>
         </ThemeProvider>
+        <Script src="https://scripts.simpleanalyticscdn.com/latest.js" />
       </body>
     </html>
   );
