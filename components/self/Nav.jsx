@@ -4,6 +4,7 @@ import Image from "next/image";
 import useSound from "use-sound";
 import { useState, useCallback } from "react";
 import Link from "next/link";
+import mixpanel from "mixpanel-browser";
 
 const Nav = () => {
   const [play] = useSound("/click2.mp3");
@@ -11,6 +12,7 @@ const Nav = () => {
 
   const handleClick = useCallback((event, url) => {
     event.preventDefault();
+    mixpanel.track('NavLink Click')
     if (isLoading) return;
     
     setIsLoading(true);
