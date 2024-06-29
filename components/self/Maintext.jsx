@@ -2,8 +2,8 @@ import { memo } from 'react';
 import { FlipWords } from '../ui/flipwords';
 const words = ["Hello, I'm Anurag Bevinal"]
 const Maintext = memo(() => (
-  <section className="w-full p-5 md:p-10 mt-14 md:mt-20 bg-transparent">
-    <div className="w-[100%] md:w-[70%] leading-7 text-black dark:text-white text-lg md:text-3xl font-normal">
+  <section  className="w-full p-5 md:p-10 mt-14 md:mt-20 bg-transparent">
+    <div className="w-full lg:w-[75%] leading-7 text-black dark:text-white text-lg md:text-3xl font-normal">
       <h1 className='text-xl md:text-3xl font-semibold'><FlipWords words={words} /></h1>
       <p className="text-neutral-500 py-2">
         Full-Stack Developer - RIT Graduate
