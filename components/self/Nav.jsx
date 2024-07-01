@@ -22,7 +22,7 @@ const Nav = () => {
 
   return (
     <nav  className="w-full sticky top-0 z-50 h-16 flex items-center justify-between px-4 py-4 md:px-8 text-black dark:text-white md:text-xl bg-neutral-200 dark:bg-dark-blue border-b border-neutral-700">
-      <NavLink href="/" onClick={handleClick}>
+      <NavLink href="#projects" onClick={handleClick}>
         Projects
       </NavLink>
       <a onClick={(e) => handleClick(e, "/")} className="h-full group" href="/">

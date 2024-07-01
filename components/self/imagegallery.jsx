@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Image from "next/image";
 import SoundButton from './soundButton';
+import { ArrowRight } from 'lucide-react';
 
 export default function ImageGallery({ initialImages }) {
   const [imageSets, setImageSets] = useState([initialImages.slice(0, 10)]);
@@ -55,7 +56,12 @@ export default function ImageGallery({ initialImages }) {
       ))}
       {loadedCount < initialImages.length && (
         <div onClick={loadMore} className='w-full flex items-center justify-center'>
-          <SoundButton>Load More</SoundButton>
+          <button className="group relative inline-flex h-[calc(48px+8px)] items-center justify-center rounded-full bg-neutral-800 py-1 pl-6 pr-14 font-medium text-neutral-50">
+          <span className="z-10 pr-2 group-hover:text-black transition-colors ease-in-out duration-300">Load More</span>
+          <div className="absolute right-1 inline-flex h-12 w-12 items-center justify-end rounded-full bg-greeen transition-[width] ease-in-out duration-300 group-hover:w-[calc(100%-8px)]">
+            <ArrowRight className="mr-3.5 text-black" />
+          </div>
+        </button>
         </div>
       )}
     </div>

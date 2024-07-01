@@ -23,7 +23,8 @@ const Footer = () => {
   return (
     <footer className="w-full bottom-0 z-50 h-16 flex items-center justify-between px-4 py-4 md:px-8 text-black dark:text-white md:text-xl bg-neutral-200 dark:bg-dark-blue border-t border-neutral-700">
       <FooterLink  href="#top" onClick={handleClick}>
-        Back to Top 
+        <div className="flex flex-row items-center gap-1 group">Back to Top <ArrowUp className="group-hover:-translate-y-1 transition-all ease-in-out duration-300"/></div>
+        
       </FooterLink>
       
       <FooterLink href="/about" onClick={handleClick}>
@@ -40,7 +41,7 @@ const FooterLink = ({ href, onClick, children }) => (
     className="group flex flex-col cursor-pointer"
   >
     {children}
-    <div className="w-0 h-[2px] bg-black dark:bg-white group-hover:w-full transition-all ease-in-out duration-300" />
+    <div className="w-0 h-[2px]  bg-black dark:bg-white group-hover:w-full transition-all ease-in-out duration-300" />
   </a>
 );
 
