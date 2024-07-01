@@ -6,7 +6,7 @@ const Maintext = memo(() => (
     <div className="w-full lg:w-[75%] leading-7 text-black dark:text-white text-lg md:text-3xl font-normal">
       <h1 className='text-xl md:text-4xl font-semibold'><FlipWords words={words} /></h1>
       <p className="text-neutral-500 py-2">
-        Full-Stack Developer - RIT Graduate
+        Full-Stack Developer
       </p>
       <p>
       In the past two years, I co-founded Zlock Technologies and developed web startups, gaining diverse skills. I focus on creating scalable, user-friendly applications to solve real-world challenges, innovating and adapting in dynamic environments to deliver impactful solutions.
