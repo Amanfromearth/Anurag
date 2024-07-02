@@ -3,8 +3,10 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import ModeToggle from "@/components/ui/modal-toggle";
 import Nav from "@/components/self/Nav";
-import Script from 'next/script'
+import Script from "next/script";
 import Footer from "@/components/self/Footer";
+import DrawerComponent from "@/components/self/DrawerComponent";
+
 const inter = DM_Sans({ subsets: ["latin"] });
 
 export const metadata = {
@@ -14,7 +16,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning >
+    <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className}`}>
         <ThemeProvider
           attribute="class"
@@ -22,8 +24,9 @@ export default function RootLayout({ children }) {
           enableSystem
           disableTransitionOnChange
         >
-          <div className="fixed inset-0 -z-10 bg-white [background:radial-gradient(125%_125%_at_50%_10%,#fff_40%,#63e_100%)] dark:bg-black dark:bg-[radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]">
-            <div className="relative h-screen w-full overflow-auto">
+         <div className="fixed inset-0 h-[100dvh] -z-10 bg-white [background:radial-gradient(125%_125%_at_50%_10%,#fff_40%,#63e_100%)] dark:bg-black dark:bg-[radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]">
+            <div id="scrollable-content" className="relative h-[100dvh] w-full overflow-auto">
+              <DrawerComponent />
               <main className="flex h-full w-full flex-col items-center justify-between lg:px-2 lg:py-24">
                 <div className="absolute top-7 hidden md:block right-7">
                   <ModeToggle />
@@ -31,7 +34,7 @@ export default function RootLayout({ children }) {
                 <section className="relative inline-flex w-full lg:w-[960px] flex-col items-center justify-center bg-neutral-200 dark:bg-dark-blue rounded border border-neutral-700">
                   <Nav />
                   {children}
-                  <Footer/>
+                  <Footer />
                 </section>
               </main>
             </div>

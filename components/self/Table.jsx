@@ -3,8 +3,6 @@ import Image from "next/image";
 import OrbitingCircles from "../magicui/orbiting-circles";
 import useResponsiveRadius from "@/lib/radiushook";
 
-
-
 const Icon = ({ name, size, className = "" }) => (
   <Image
     className={`${className} ${size === 40 ? 'rounded-full' : ''}`}
@@ -22,7 +20,9 @@ const iconSizes = {
   react: 40,
   mongodb: 50,
   tailwind: 50,
-  nextjs: 50
+  nextjs: 50,
+  css: 50,
+  prisma: 40
 };
 
 export function Table() {
@@ -33,19 +33,26 @@ export function Table() {
     duration: 20
   };
 
-  const orbitProps = [
-    { delay: 0, icon: 'react', radius: radius80, size: 30 },
-    { delay: 5, icon: 'javascript', radius: radius80, size: 30 },
-    { delay: 10, icon: 'gitHub', radius: radius80, size: 30 },
-    { delay: 15, icon: 'python', radius: radius80, size: 30 },
-    { delay: 0, icon: 'nextjs', radius: radius190, size: 50, reverse: true },
-    { delay: 5, icon: 'tailwind', radius: radius190, size: 50, reverse: true },
-    { delay: 10, icon: 'nodejs', radius: radius190, size: 50, reverse: true },
-    { delay: 15, icon: 'mongodb', radius: radius190, size: 50, reverse: true }
-  ];
+  const innerOrbitIcons = ['react', 'javascript', 'gitHub', 'python'];
+  const outerOrbitIcons = ['nextjs', 'tailwind', 'nodejs', 'mongodb', 'css', 'prisma'];
+
+  const createOrbitProps = (icons, radius, size, reverse = false) => {
+    return icons.map((icon, index) => ({
+      delay: (index / icons.length) * commonCircleProps.duration,
+      icon,
+      radius,
+      size,
+      reverse
+    }));
+  };
+
+  const innerOrbitProps = createOrbitProps(innerOrbitIcons, radius80, 30);
+  const outerOrbitProps = createOrbitProps(outerOrbitIcons, radius190, 50, true);
+
+  const orbitProps = [...innerOrbitProps, ...outerOrbitProps];
 
   return (
-    <div className="relative flex h-[500px] w-full max-w-[32rem] items-center justify-center overflow-hidden rounded-lg dark:bg-dark-blue">
+    <div className="relative flex h-[450px] w-full max-w-[32rem] items-center justify-center overflow-hidden rounded-lg dark:bg-dark-blue">
       <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-6xl lg:text-8xl font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10">
         Skills
       </span>

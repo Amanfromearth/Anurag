@@ -5,7 +5,7 @@ import { useState } from "react";
 const Cta = () => {
   const [hover, setHover] = useState(false);
   return (
-    <main className="w-full inline-flex items-center justify-center">
+    <section id="cta" className="w-full inline-flex items-center justify-center">
       <GlowingStarsBackgroundCard className="w-full h-96" hover={hover}>
         <button
           onMouseEnter={() => setHover(true)}
@@ -20,7 +20,7 @@ const Cta = () => {
           </span>
         </button>
       </GlowingStarsBackgroundCard>
-    </main>
+    </section>
   );
 };
 

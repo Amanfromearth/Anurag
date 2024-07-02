@@ -45,8 +45,8 @@ const ProjectCard = ({ image, title, description, websiteUrl, readMoreUrl }) => 
 );
 
 const Projects = () => (
-  <div  id="projects" className="w-full px-1 md:px-10 flex flex-col gap-10">
-    <h2 className="w-fit mx-4 sm:mx-0 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0">
+  <div  id="projects" className="w-full px-1 pt-16 md:px-10 flex flex-col gap-5">
+    <h2 className="w-fit mx-4 sm:mx-0 scroll-m-20 border-b pb-2 text-4xl font-semibold tracking-tight first:mt-0">
       Projects
     </h2>
     <div className="flex w-full items-center justify-center flex-col">

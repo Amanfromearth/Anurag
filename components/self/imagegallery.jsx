@@ -33,7 +33,7 @@ export default function ImageGallery({ initialImages }) {
 
   return (
     <div className="space-y-6 text-black dark:text-slate-300">
-      <h2 className="text-3xl w-fit font-semibold text-black dark:text-white border-b pb-2">
+      <h2 className="text-3xl font-semibold text-black dark:text-white border-b pb-2">
         Photo Gallery
       </h2>
       <p>Welcome to my visual diary. I've often been described by my friends as an average photographer, but I'll let you be the judge of that.</p>

@@ -36,14 +36,14 @@ const Footer = () => {
   );
 
   return (
-    <footer className="w-full bottom-0 z-50 h-16 flex items-center justify-between px-4 py-4 md:px-8 text-black dark:text-white md:text-xl bg-neutral-200 dark:bg-dark-blue border-t border-neutral-700">
+    <footer id="footer" className="w-full bottom-0 z-30 h-16 flex items-center justify-between px-4 py-4 md:px-8 text-black dark:text-white md:text-xl bg-neutral-200 dark:bg-dark-blue border-t border-neutral-700">
       <button className="group flex flex-col cursor-pointer" onClick={handletop}>
         <div className="flex flex-row items-center gap-1 group">Back to Top <ArrowUp className="group-hover:-translate-y-1 transition-all ease-in-out duration-300"/></div>
         <div className="w-0 h-[2px]  bg-black dark:bg-white group-hover:w-full transition-all ease-in-out duration-300" />
       </button>
       
       <FooterLink href="/about" onClick={handleClick}>
-        About me
+       Contact Me
       </FooterLink>
     </footer>
   );
