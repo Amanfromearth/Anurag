@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
           enableSystem
           disableTransitionOnChange
         >
-         <div className="fixed inset-0 h-[100dvh] -z-10 bg-white [background:radial-gradient(125%_125%_at_50%_10%,#fff_40%,#63e_100%)] dark:bg-black dark:bg-[radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]">
+          <div className="fixed inset-0 h-[100dvh] -z-10 bg-white [background:radial-gradient(125%_125%_at_50%_10%,#fff_40%,#63e_100%)] dark:bg-black dark:bg-[radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]">
             <div id="scrollable-content" className="relative h-[100dvh] w-full overflow-auto">
               <DrawerComponent />
               <main className="flex h-full w-full flex-col items-center justify-between lg:px-2 lg:py-24">
@@ -34,7 +34,7 @@ export default function RootLayout({ children }) {
                 <section className="relative inline-flex w-full lg:w-[960px] flex-col items-center justify-center bg-neutral-200 dark:bg-dark-blue rounded border border-neutral-700">
                   <Nav />
                   {children}
-                  <Footer />
+                  <Footer scrollableTargetId="scrollable-content" />
                 </section>
               </main>
             </div>
