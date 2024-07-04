@@ -3,14 +3,15 @@ import Image from "next/image";
 import OrbitingCircles from "../magicui/orbiting-circles";
 import useResponsiveRadius from "@/lib/radiushook";
 
-const Icon = ({ name, size, className = "" }) => (
-  <Image
-    className={`${className} ${size === 40 ? 'rounded-full' : ''}`}
-    src={`/icons/${name}.svg`}
-    width={size}
-    height={size}
-  />
-);
+  const Icon = ({ name, size, className = "" }) => (
+    <Image
+      className={`${className} ${size === 40 ? 'rounded-full' : ''}`}
+      src={`/icons/${name}.svg`}
+      width={size}
+      height={size}
+      alt={`${name} icon`}
+    />
+  );
 
 const iconSizes = {
   gitHub: 40,

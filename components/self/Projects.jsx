@@ -14,7 +14,7 @@ const projectsData = [
     title: "Idea to video",
     description: "Generates a stop motion video based on the description user provides",
     websiteUrl: "https://idea-to-video.vercel.app/dashboard",
-    readMoreUrl: "/projects/naminggenie"
+    readMoreUrl: "/projects/idea-to-video"
   },
 ];
 
@@ -26,7 +26,7 @@ const ProjectCard = ({ image, title, description, websiteUrl, readMoreUrl }) => 
         <h2 className="font-semibold text-2xl">{title}</h2>
         <p className="w-[80%] text-neutral-400">{description}</p>
       </div>
-      <div className="w-full flex gap-3 text-xs md:text-sm items-center">
+      <div className="w-full flex justify-center gap-3 text-xs md:text-sm items-center">
         <a href={websiteUrl} className="group relative inline-flex h-12 items-center justify-center rounded-full bg-neutral-800 px-3 md:px-6 font-medium text-neutral-200">
           <span>Visit Website</span>
           <div className="relative ml-1 h-5 w-5 overflow-hidden">

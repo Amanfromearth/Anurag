@@ -1,12 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: "class",
   content: [
     "./pages/**/*.{js,jsx}",
     "./components/**/*.{js,jsx}",
     "./app/**/*.{js,jsx}",
     "./src/**/*.{js,jsx}",
   ],
+  darkMode: 'class',
   prefix: "",
   theme: {
     container: {
@@ -82,7 +82,7 @@ module.exports = {
             opacity: 0,
           },
         },
-      
+     
         "accordion-up": {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },

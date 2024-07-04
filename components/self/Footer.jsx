@@ -34,12 +34,12 @@ const Footer = () => {
   );
 
   return (
-    <footer className="w-full bottom-0 z-30 h-16 flex items-center justify-between px-4 py-4 md:px-8 text-black dark:text-white md:text-xl bg-neutral-200 dark:bg-dark-blue border-t border-neutral-700">
-      <button className="group flex flex-col cursor-pointer" onClick={handleTop}>
+    <footer id="footer" className="w-full bottom-0 z-30 h-16 flex items-center justify-between px-4 py-4 md:px-8 text-black dark:text-white md:text-xl bg-dark-blue border-t border-neutral-700">
+      <button className="group flex flex-col text-white cursor-pointer" onClick={handleTop}>
         <div className="flex flex-row items-center gap-1 group">
           Back to Top <ArrowUp className="group-hover:-translate-y-1 transition-all ease-in-out duration-300" />
         </div>
-        <div className="w-0 h-[2px] bg-black dark:bg-white group-hover:w-full transition-all ease-in-out duration-300" />
+        <div className="w-0 h-[2px] bg-white group-hover:w-full transition-all ease-in-out duration-300" />
       </button>
 
       <FooterLink href="/about" onClick={handleClick}>
@@ -50,9 +50,9 @@ const Footer = () => {
 };
 
 const FooterLink = ({ href, onClick, children }) => (
-  <a href={href} onClick={(e) => onClick(e, href)} className="group flex flex-col cursor-pointer">
+  <a href={href} onClick={(e) => onClick(e, href)} className="group text-white flex flex-col cursor-pointer">
     {children}
-    <div className="w-0 h-[2px] bg-black dark:bg-white group-hover:w-full transition-all ease-in-out duration-300" />
+    <div className="w-0 h-[2px] bg-white group-hover:w-full transition-all ease-in-out duration-300" />
   </a>
 );
 

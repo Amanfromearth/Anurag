@@ -72,12 +72,12 @@ export default function DrawerComponent() {
   return (
     <Drawer>
       <DrawerTrigger
-        className={`fixed bottom-7 z-50 right-7 transition-opacity duration-300 ${
+        className={`fixed bottom-7 z-30 right-7 transition-opacity duration-300 ${
           scrollPosition > 100 && !isHidden ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}
       >
         <div
-          className="relative inline-flex z- h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
+          className="relative z-40 inline-flex z- h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
         >
           <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#C8FF54_0%,#393BB2_50%,#C8FF54_100%)]" />
           <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl">
@@ -91,15 +91,15 @@ export default function DrawerComponent() {
           <DrawerTitle className="text-2xl font-bold text-center mb-4">Get in Touch</DrawerTitle>
         </DrawerHeader>
           <div className="px-4 py-2 space-y-4">
-          <Button variant="outline" className="w-full justify-start text-left font-normal" onClick={() => window.location.href = 'mailto:your.email@example.com'}>
+          <Button variant="outline" className="w-full justify-start text-left font-normal" onClick={() => window.location.href = 'mailto:anurag3b@gmail.com'}>
             <Mail className="mr-2 h-4 w-4" />
             anurag3b@gmail.com
           </Button>
-          <Button variant="outline" className="w-full justify-start text-left font-normal" onClick={() => window.open('https://linkedin.com/in/your-profile', '_blank')}>
+          <Button variant="outline" className="w-full justify-start text-left font-normal" onClick={() => window.open('https://linkedin.com/in/anurag', '_blank')}>
             <Linkedin className="mr-2 h-4 w-4" />
             LinkedIn Profile
           </Button>
-          <Button variant="outline" className="w-full justify-start text-left font-normal" onClick={() => window.open('https://github.com/your-username', '_blank')}>
+          <Button variant="outline" className="w-full justify-start text-left font-normal" onClick={() => window.open('https://github.com/Amanfromearth', '_blank')}>
             <Github className="mr-2 h-4 w-4" />
             GitHub Profile
           </Button>

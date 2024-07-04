@@ -1,7 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import Image from "next/image";
-import SoundButton from './soundButton';
 import { ArrowRight } from 'lucide-react';
 
 export default function ImageGallery({ initialImages }) {
@@ -32,8 +31,8 @@ export default function ImageGallery({ initialImages }) {
   }, [loadingStates]);
 
   return (
-    <div className="space-y-6 text-black dark:text-slate-300">
-      <h2 className="text-3xl font-semibold text-black dark:text-white border-b pb-2">
+    <div className="space-y-6 text-slate-300">
+      <h2 className="text-3xl font-semibold text-white border-b pb-2">
         Photo Gallery
       </h2>
       <p>Welcome to my visual diary. I've often been described by my friends as an average photographer, but I'll let you be the judge of that.</p>

@@ -7,12 +7,12 @@ import Projects from "@/components/self/Projects";
 
 export default function Home() {
   return (
-    <>
+    <section className="flex flex-col w-full items-center justify-center">
       <Maintext />
       <Table />
       <Projects/>
       <SoundButton>Click for ping!</SoundButton>
       <Cta />
-    </>
+      </section>
   );
 }

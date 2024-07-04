@@ -21,7 +21,7 @@ const Nav = () => {
   }, [play]);
 
   return (
-    <nav className="w-full sticky top-0 z-30 h-16 flex items-center justify-between px-4 py-4 md:px-8 text-black dark:text-white md:text-xl bg-neutral-200 dark:bg-dark-blue border-b border-neutral-700">
+    <nav className="w-full sticky top-0 z-30 h-16 flex items-center justify-between px-4 py-4 md:px-8 text-white md:text-xl bg-dark-blue border-b border-neutral-700">
       <NavLink href="/#projects" onClick={handleClick}>
         Projects
       </NavLink>
@@ -48,7 +48,7 @@ const NavLink = ({ href, onClick, children }) => (
     className="group flex flex-col cursor-pointer"
   >
     {children}
-    <div className="w-0 h-[2px] bg-black dark:bg-white group-hover:w-full transition-all ease-in-out duration-300" />
+    <div className="w-0 h-[2px] bg-white group-hover:w-full transition-all ease-in-out duration-300" />
   </a>
 );
 

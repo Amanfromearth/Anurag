@@ -3,7 +3,7 @@ import "/public/css/blog.css";
 import Cta from "@/components/self/cta";
 
 async function getBlogData() {
-  const filePath = './content/naminggenie.md';
+  const filePath = './content/idea-to-video.md';
   const data = await separator2(filePath);
  
   return {
