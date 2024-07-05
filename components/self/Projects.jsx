@@ -18,6 +18,22 @@ const projectsData = [
     websiteUrl: "https://kineticx.vercel.app/dashboard",
     readMoreUrl: "/projects/kineticx",
   },
+  {
+    image: "/varshaagro2.png",
+    title: "Varsha Agro Giveaway page",
+    description:
+      "A website to help conducut giveaway in our family run shop and also increase traffic to the shops whatsapp group and facebook group",
+    websiteUrl: "https://varshaagro.vercel.app/",
+    readMoreUrl: "/projects/varshaagro",
+  },
+  {
+    image: "/cryptokids.png",
+    title: "cryptokids nft",
+    description:
+      "a nft project made when i didnt know coding so the website was created in wix ",
+    websiteUrl: "/",
+    readMoreUrl: "/projects/cryptokids",
+  },
 ];
 
 const ProjectCard = ({

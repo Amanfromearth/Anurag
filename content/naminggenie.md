@@ -52,4 +52,4 @@ This is the version which is up and running currently, this uses Next.js and has
 
 ## SEO Impact
 
-While the impression increased after adding the new version with the blogs, our average position went down significantly.
+The impressions on the site increased significantly, as shown by the graph. However, the click-through rate remains low. SEO is a time-consuming process, and it will take time for Google to recognize this site fully.
