@@ -11,7 +11,6 @@ export default function Home() {
       <Maintext />
       <Table />
       <Projects/>
-      <SoundButton>Click for ping!</SoundButton>
       <Cta />
       </section>
   );

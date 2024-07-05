@@ -3,7 +3,7 @@
 }
 
 .blog-content img {
-  --tw-brightness: brightness(.75);
+  --tw-brightness: brightness(.90);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
   width: 65%;
   margin-left: auto;
@@ -33,6 +33,14 @@
 
 .blog-content p:not(:first-child) {
   margin-top: 1.5rem; /* mt-6 */
+}
+
+
+.blog-content video {
+  margin-top: 30px ;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .blog-content h2 {

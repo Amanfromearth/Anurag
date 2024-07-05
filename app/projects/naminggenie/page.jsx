@@ -16,7 +16,7 @@ export default async function BlogPage() {
 
 
   return (
-    <div className="mx-auto flex flex-col pt-24 max-w-3xl items-center justify-center">
+    <div className=" px-5  md:mx-auto flex flex-col pt-24 max-w-3xl items-center justify-center">
       <div className="blog-content mb-8" dangerouslySetInnerHTML={{ __html: props.data.text }} />
       <Cta/>
     </div>

@@ -11,10 +11,10 @@ const projectsData = [
   },
   {
     image: "/remotion.png",
-    title: "Idea to video",
-    description: "Generates a stop motion video based on the description user provides",
-    websiteUrl: "https://idea-to-video.vercel.app/dashboard",
-    readMoreUrl: "/projects/idea-to-video"
+    title: "Kineticx",
+    description: "Generates a typography stop motion video based on the description user provides",
+    websiteUrl: "https://kineticx.vercel.app/dashboard",
+    readMoreUrl: "/projects/kineticx"
   },
 ];
 
