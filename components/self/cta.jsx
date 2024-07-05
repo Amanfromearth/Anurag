@@ -10,6 +10,9 @@ const Cta = () => {
         <button
           onMouseEnter={() => setHover(true)}
           onMouseLeave={() => setHover(false)}
+          onClick={() =>
+            (window.location.href = "mailto:anurag3b@gmail.com")
+          }
           className="flex  active:translate-x-[3px] active:translate-y-[3px] active:shadow-sm border-2 items-center border-white p-3 gap-3 rounded-full text-white bg-black flex-row  group hover: hover:shadow-lg hover:shadow-[#C8FF54]  hover:bg-[#C8FF54] transition-all duration-500 ease-in-out"
         >
           <div className=" rounded-full group-hover:bg-white bg-[#C8FF54] text-black p-1 transition-all group-hover:rotate-180 duration-500 ease-in-out group-hover:translate-x-[193px]">
