@@ -19,11 +19,12 @@ export const FlipWords = ({
   }, [currentWord, words]);
 
   useEffect(() => {
-    if (!isAnimating)
-      setTimeout(() => {
-        startAnimation();
-      }, duration);
-  }, [isAnimating, duration, startAnimation]);
+    const intervalId = setInterval(() => {
+      startAnimation();
+    }, duration);
+
+    return () => clearInterval(intervalId);
+  }, [duration, startAnimation]);
 
   return (
     <AnimatePresence
