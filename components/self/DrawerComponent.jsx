@@ -71,13 +71,16 @@ export default function DrawerComponent() {
   }
   const handleShareWebsite = () => {
     const websiteUrl = "https://anurag.be"; // Replace with your actual website URL
-    
-    navigator.clipboard.writeText(websiteUrl).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000); // Reset after 2 seconds
-    }).catch(err => {
-      console.error('Failed to copy URL: ', err);
-    });
+
+    navigator.clipboard
+      .writeText(websiteUrl)
+      .then(() => {
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000); // Reset after 2 seconds
+      })
+      .catch((err) => {
+        console.error("Failed to copy URL: ", err);
+      });
   };
 
   return (
@@ -89,9 +92,9 @@ export default function DrawerComponent() {
             : "opacity-0 pointer-events-none"
         }`}
       >
-        <div className="relative z-40 inline-flex z- h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
-          <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#C8FF54_0%,#393BB2_50%,#C8FF54_100%)]" />
-          <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl">
+        <div className="relative inline-flex z- h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
+          <span className="absolute inset-[-1000%] z-30 animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#C8FF54_0%,#393BB2_50%,#C8FF54_100%)]" />
+          <span className="inline-flex  z-40  h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl">
             Contact/Resume
           </span>
         </div>
@@ -135,7 +138,12 @@ export default function DrawerComponent() {
             <Button
               variant="default"
               className="w-full"
-              onClick={() => window.open("https://drive.google.com/file/d/1z8Vo4LkPp9ZytwKZmIjd4l9wdUszuS0H/view?usp=sharing", "_blank")}
+              onClick={() =>
+                window.open(
+                  "https://drive.google.com/file/d/1z8Vo4LkPp9ZytwKZmIjd4l9wdUszuS0H/view?usp=sharing",
+                  "_blank"
+                )
+              }
             >
               <FileText className="mr-2 h-4 w-4" />
               View/Download Resume
