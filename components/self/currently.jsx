@@ -6,8 +6,8 @@ const Currently = () => {
       <h2 className="w-fit mx-4 sm:mx-0 scroll-m-20 border-b pb-2 text-xl md:text-3xl font-semibold tracking-tight">
         What I'm Currently Doing
       </h2>
-      <ul className="my-6 text-lg ml-6 list-disc">
-        <li>Looking for a full-time job in full-stack development</li>
+      <ul className="my-6 md:text-lg ml-6 list-disc">
+        <li>Avaialble for freelance gig</li>
         <li>Building Kineticx</li>
         <li>Learning Go for backend development</li>
       </ul>
