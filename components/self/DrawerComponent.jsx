@@ -135,7 +135,7 @@ export default function DrawerComponent() {
             <Button
               variant="default"
               className="w-full"
-              onClick={() => window.open("/path-to-your-resume.pdf", "_blank")}
+              onClick={() => window.open("https://drive.google.com/file/d/1z8Vo4LkPp9ZytwKZmIjd4l9wdUszuS0H/view?usp=sharing", "_blank")}
             >
               <FileText className="mr-2 h-4 w-4" />
               View/Download Resume
