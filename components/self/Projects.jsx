@@ -4,9 +4,9 @@ import Image from "next/image";
 const projectsData = [
   {
     image: "/naminggenie.png",
-    title: "naminggenie",
+    title: "NamingGenie",
     description:
-      "Generates Domain names which are available to register based on the description of the website",
+      "Generates domain names which are available to register based on the description of the website.",
     websiteUrl: "https://naminggenie.com",
     readMoreUrl: "/projects/naminggenie",
   },
@@ -14,27 +14,28 @@ const projectsData = [
     image: "/remotion.png",
     title: "Kineticx",
     description:
-      "Generates a typography stop motion video based on the description user provides",
+      "Generates a typography stop motion video based on the description the user provides.",
     websiteUrl: "https://kineticx.vercel.app/dashboard",
     readMoreUrl: "/projects/kineticx",
   },
   {
     image: "/varshaagro2.png",
-    title: "Varsha Agro Giveaway page",
+    title: "A Giveaway Website",
     description:
-      "A website to help conducut giveaway in our family run shop and also increase traffic to the shops whatsapp group and facebook group",
+      "A website to help conduct giveaways in our family-run shop and also increase traffic to the shop's WhatsApp group and Facebook group.",
     websiteUrl: "https://varshaagro.vercel.app/",
     readMoreUrl: "/projects/varshaagro",
   },
   {
     image: "/cryptokids.png",
-    title: "cryptokids nft",
+    title: "CryptoKids NFT",
     description:
-      "a nft project made when i didnt know coding so the website was created in wix ",
+      "An NFT project made when I didn't know coding, so the website was created in Wix.",
     websiteUrl: "/",
     readMoreUrl: "/projects/cryptokids",
   },
 ];
+
 
 const ProjectCard = ({
   image,
@@ -48,6 +49,7 @@ const ProjectCard = ({
       width={500}
       height={500}
       src={image}
+      quality={75}
       alt={title}
       className="w-full brightness-90 border-2 border-neutral-300 rounded-lg"
     />
@@ -59,6 +61,7 @@ const ProjectCard = ({
       <div className="w-full flex justify-center gap-3 text-xs md:text-sm items-center">
         <a
           href={websiteUrl}
+          target="_blank"
           className="group relative inline-flex h-12 items-center justify-center rounded-full bg-neutral-800 px-3 md:px-6 font-medium text-neutral-200"
         >
           <span>Visit Website</span>
