@@ -29,8 +29,9 @@ const Nav = () => {
         <Image
           className="h-full w-auto group-hover:rotate-180 ease-in-out duration-500"
           src="/logo.png"
-          width={500}
-          height={500}
+          width={200}
+          height={200}
+          quality={70}
           alt="Logo"
         />
       </a>

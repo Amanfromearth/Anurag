@@ -43,6 +43,7 @@ export default function ImageGallery({ initialImages }) {
               <Image
                 src={image.src}
                 alt={image.alt}
+                quality={75}
                 width={0}
                 height={0}
                 sizes="100vw"

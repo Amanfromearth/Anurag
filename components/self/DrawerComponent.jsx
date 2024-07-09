@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/drawer";
 import { Button } from "@/components/ui/button";
 import { FileText, Github, Mail, Share2 } from "lucide-react";
+import Link from "next/link";
 
 export default function DrawerComponent() {
   const [mounted, setMounted] = useState(false);
@@ -107,52 +108,43 @@ export default function DrawerComponent() {
             </DrawerTitle>
           </DrawerHeader>
           <div className="px-4 py-2 space-y-4">
-            <Button
-              variant="outline"
-              className="w-full justify-start text-left font-normal"
-              onClick={() =>
-                (window.location.href = "mailto:anurag3b@gmail.com")
-              }
+            <Link
+              href="mailto:anurag3b@gmail.com"
+              className="w-full inline-flex items-center justify-start px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
               <Mail className="mr-2 h-4 w-4" />
               anurag3b@gmail.com
-            </Button>
-            <Button
-              variant="outline"
-              className="w-full justify-start text-left font-normal"
+            </Link>
+            <button
               onClick={handleShareWebsite}
+              className="w-full inline-flex items-center justify-start px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
               <Share2 className="mr-2 h-4 w-4" />
               {copied ? "Copied URL!" : "Share My Website"}
-            </Button>
-            <Button
-              variant="outline"
-              className="w-full justify-start text-left font-normal"
-              onClick={() =>
-                window.open("https://github.com/Amanfromearth", "_blank")
-              }
+            </button>
+            <Link
+              href="https://github.com/Amanfromearth"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full inline-flex items-center justify-start px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
               <Github className="mr-2 h-4 w-4" />
               GitHub Profile
-            </Button>
-            <Button
-              variant="default"
-              className="w-full"
-              onClick={() =>
-                window.open(
-                  "https://drive.google.com/file/d/1CDC2V-rU8DxTzAkkdqMgCfiwhZwiM3fS/view?usp=sharing",
-                  "_blank"
-                )
-              }
+            </Link>
+            <Link
+              href="https://drive.google.com/file/d/1CDC2V-rU8DxTzAkkdqMgCfiwhZwiM3fS/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full inline-flex items-center justify-start px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
               <FileText className="mr-2 h-4 w-4" />
               View/Download Resume
-            </Button>
+            </Link>
           </div>
           <DrawerClose asChild className="px-4">
-            <Button variant="outline" className="mt-4 w-full">
+            <button className="mt-4 w-full inline-flex justify-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
               Close
-            </Button>
+            </button>
           </DrawerClose>
         </div>
       </DrawerContent>

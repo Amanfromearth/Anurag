@@ -6,4 +6,6 @@ Pagedescription: uii
 Metadescription: oh
 ---
 
-# Coming soon...
+# What is CryptoKids NFT ?
+
+It is a nft avatar project 
