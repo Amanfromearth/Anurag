@@ -2,11 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-.glow-enhanced {
-  width: 200px;
-  height: 200px;
-  box-shadow: 0 0 20px 10px #c8ff54; /* Increased blur and added spread */
-  border-radius: 10px;
+.gloww:hover {
+  box-shadow: 0 0 30px 10px rgba(200, 255, 84, 0.4);
 }
 
 

@@ -31,7 +31,6 @@ const Nav = () => {
           src="/logo.png"
           width={200}
           height={200}
-          quality={70}
           alt="Logo"
         />
       </a>
