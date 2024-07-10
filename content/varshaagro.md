@@ -8,7 +8,7 @@ Metadescription: Oh
 
 A website to help conduct giveaways in our family-run shop and also increase traffic to the shop's WhatsApp group and Facebook group.
 
-![Varsha Agro website](/varshaagro2.png)
+![Varsha Agro website](/varshaagro2.webp)
 
 ## Why Not Use Popular Giveaway Pages
 
@@ -18,7 +18,7 @@ My uncle, who runs the shop, specifically asked me to make the app in Kannada as
 
 The website caters to local Karnataka farmers, so the design was kept very simple, with no fancy animations. This design is actually copied from the Gleam website, which also offers a similar giveaway platform.
 
-![Gleam website](/Gleam.jpg)
+![Gleam website](/Gleam.webp)
 
 ## Tech Stack
 

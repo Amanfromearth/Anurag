@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const projectsData = [
   {
-    image: "/naminggenie.png",
+    image: "/naminggenie.webp",
     title: "NamingGenie",
     description:
       "Generates domain names which are available to register based on the description of the website.",
@@ -11,7 +11,7 @@ const projectsData = [
     readMoreUrl: "/projects/naminggenie",
   },
   {
-    image: "/remotion.png",
+    image: "/remotion.webp",
     title: "Kineticx",
     description:
       "Generates a typography stop motion video based on the description the user provides.",
@@ -19,7 +19,7 @@ const projectsData = [
     readMoreUrl: "/projects/kineticx",
   },
   {
-    image: "/varshaagro2.png",
+    image: "/varshaagro2.webp",
     title: "A Giveaway Website",
     description:
       "A website to help conduct giveaways in our family-run shop and also increase traffic to the shop's WhatsApp group and Facebook group.",
@@ -27,7 +27,7 @@ const projectsData = [
     readMoreUrl: "/projects/varshaagro",
   },
   {
-    image: "/cryptokids.png",
+    image: "/cryptokids.webp",
     title: "CryptoKids NFT",
     description:
       "An NFT project made when I didn't know coding, so the website was created in Wix.",

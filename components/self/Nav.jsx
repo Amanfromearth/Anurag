@@ -28,7 +28,7 @@ const Nav = () => {
       <a onClick={(e) => handleClick(e, "/")} className="h-full group" href="/">
         <Image
           className="h-full w-auto group-hover:rotate-180 ease-in-out duration-500"
-          src="/logo.png"
+          src="/logo.webp"
           width={200}
           height={200}
           alt="Logo"

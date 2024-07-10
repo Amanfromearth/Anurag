@@ -30,7 +30,7 @@
         </BlogParagraph>
       </div>
       <div className="max-w-lg w-full">
-        <BlogImage src="/naminggenie.png" alt="NamingGenie website" />
+        <BlogImage src="/naminggenie.webp" alt="NamingGenie website" />
       </div>
       <div className="max-w-3xl mt-5 flex flex-col gap-5">
         <BlogParagraph>
@@ -44,7 +44,7 @@
         </BlogParagraph>
       </div>
       <div className="max-w-lg w-full">
-        <BlogImage src="/dominator.png" alt="First version of NamingGenie" />
+        <BlogImage src="/dominator.webp" alt="First version of NamingGenie" />
       </div>
       <div className="max-w-3xl mt-3 flex flex-col gap-5">
         <BlogParagraph>
@@ -54,7 +54,7 @@
         </BlogParagraph>
       </div>
       <div className="max-w-lg w-full">
-        <BlogImage src="/naming.png" alt="Second version of NamingGenie" />
+        <BlogImage src="/naming.webp" alt="Second version of NamingGenie" />
       </div>
       <div className="max-w-3xl mt-3 flex flex-col gap-5">
         <BlogParagraph>
@@ -64,7 +64,7 @@
       </div>
       <div className="max-w-lg w-full space-y-5">
         <Image
-          src={"/three-blog (3).jpeg"}
+          src={"/three-blog (3).webp"}
           alt={"third version"}
           width={1000}
           height={1000}
@@ -84,7 +84,7 @@
       </div>
       <div className="max-w-lg w-full space-y-5">
         <Image
-          src={"/three-blog (1).jpeg"}
+          src={"/three-blog (1).webp"}
           alt={"third version"}
           width={1000}
           height={1000}
@@ -98,7 +98,7 @@
         </BlogParagraph>
       </div>
       <div className="max-w-lg w-full">
-        <BlogImage src="/naminggenie.png" alt="NamingGenie website" />
+        <BlogImage src="/naminggenie.webp" alt="NamingGenie website" />
       </div>
       <div className="max-w-3xl mt-3 flex flex-col gap-5">
         <BlogParagraph>
