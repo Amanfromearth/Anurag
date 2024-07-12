@@ -14,7 +14,7 @@ const projectsData = [
     image: "/remotion.webp",
     title: "Kineticx",
     description:
-      "Generates a typography stop motion video based on the description the user provides.",
+      "A tool for generating typography videos from descriptions in seconds, perfect for marketing, content creation, and presentations.",
     websiteUrl: "https://kineticx.vercel.app/dashboard",
     readMoreUrl: "/projects/kineticx",
   },
