@@ -1,8 +1,5 @@
 ---
-description: Kineticx - A tool for generating typography videos from descriptions in seconds, perfect for marketing, content creation, and presentations.
 Metatitle: How I Built Kineticx | Typography Video Generator
-Pagetitle: How I Built Kineticx - Creating a Typography Video Generator
-Pagedescription: Discover the journey of building Kineticx, a tool that generates typography videos instantly. Learn about its features and the technologies used.
 Metadescription: Explore the development process of Kineticx, a typography video generator built with Next.js, Remotion, Zustand, and Vercel. Learn about its features and upcoming updates.
 ---
 

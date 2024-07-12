@@ -1,7 +1,6 @@
 ---
-description: This website provides domain names that are available for registration, generated from your business description using a large language model.
-Metatitle: Hi
-Metadescription: Oh
+Metatitle: Building a Custom Giveaway Page for a Local Farm Shop in Kannada
+Metadescription: Discover how I created a tailored giveaway website using Next.js, Supabase, and Prisma to help a family-run farm shop increase engagement and traffic in Karnataka, India.
 ---
 
 # How I Built a Giveaway Page

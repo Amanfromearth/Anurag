@@ -3,11 +3,12 @@ import { ArrowUp } from "lucide-react";
 import React, { useCallback, useState } from "react";
 import useSound from "use-sound";
 import { animateScroll as scroll } from "react-scroll";
+import { useDrawerStore } from "@/lib/store/usedrawerstore";
 
 const Footer = () => {
   const [play] = useSound("/click2.mp3");
   const [isLoading, setIsLoading] = useState(false);
-
+  const { setIsOpen } = useDrawerStore();
   const handleTop = useCallback(() => {
     play();
     scroll.scrollToTop({
@@ -42,18 +43,14 @@ const Footer = () => {
         <div className="w-0 h-[2px] bg-white group-hover:w-full transition-all ease-in-out duration-300" />
       </button>
 
-      <FooterLink href="/about" onClick={handleClick}>
+      <button className="group text-white flex flex-col cursor-pointer" onClick={() => setIsOpen(true)}>
         Contact Me
-      </FooterLink>
+        <div className="w-0 h-[2px] bg-white group-hover:w-full transition-all ease-in-out duration-300" />
+      </button>
     </footer>
   );
 };
 
-const FooterLink = ({ href, onClick, children }) => (
-  <a href={href} onClick={(e) => onClick(e, href)} className="group text-white flex flex-col cursor-pointer">
-    {children}
-    <div className="w-0 h-[2px] bg-white group-hover:w-full transition-all ease-in-out duration-300" />
-  </a>
-);
+
 
 export default Footer;

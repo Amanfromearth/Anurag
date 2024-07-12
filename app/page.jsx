@@ -6,6 +6,11 @@ import SoundButton from "@/components/self/soundButton";
 import Projects from "@/components/self/Projects";
 import Currently from "@/components/self/currently";
 
+export const metadata = {
+  description:
+    "Full-stack developer with experience in building scalable web applications and leading projects from concept to deployment. Passionate about learning new technologies and solving real-world challenges through innovative solutions",
+  canonical: "https://anurag.be/",}
+
 export default function Home() {
   return (
     <section className="flex flex-col w-full items-center justify-center">

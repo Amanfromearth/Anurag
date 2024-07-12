@@ -5,7 +5,14 @@ import path from "path";
 import { ArrowRightIcon } from "lucide-react";
 import ImageGallery from "@/components/self/imagegallery";
 import Meteors from "@/components/magicui/meteor";
-
+export async function generateMetadata(){
+  return {
+    description: "Full-stack developer with experience in building scalable web applications and leading projects from concept to deployment. Passionate about learning new technologies and solving real-world challenges through innovative solutions",
+    alternates: {
+      canonical: "https://anurag.be/about",
+    },
+  }
+}
 async function getImages() {
   const imageDirectory = path.join(process.cwd(), "public/gallery");
   try {

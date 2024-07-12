@@ -9,8 +9,22 @@ const dmsans = DM_Sans({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Anurag's Portfolio",
-  description:
-    "Full-stack developer with experience in building scalable web applications and leading projects from concept to deployment. Passionate about learning new technologies and solving real-world challenges through innovative solutions",
+  author: "Anurag",
+  keywords: "full-stack developer, web applications, portfolio, front-end developer",
+  openGraph: {
+    type: "website",
+    url: "https://anurag.be",
+    title: "Anurag's Portfolio",
+    description: "Full-stack developer portfolio showcasing projects and skills",
+    image: "/header.webp",
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@amanfromearth_",
+    title: "Anurag's Portfolio",
+    description: "Full-stack developer portfolio showcasing projects and skills",
+    image: "/header.webp",
+  }
 };
 
 export default function RootLayout({ children }) {

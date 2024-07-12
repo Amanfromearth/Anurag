@@ -1,9 +1,6 @@
 ---
-description: This website provides domain names that are available for registration, generated from your business description using a large language model.
-Metatitle: hi
-Pagetitle: hello
-Pagedescription: uii
-Metadescription: oh
+Metatitle: How I Built NamingGenie.com - A Journey from Static HTML to Next.js
+Metadescription: Explore the evolution of NamingGenie.com, a domain name generator powered by AI. Learn about the development process, from a simple HTML site to a full-stack Next.js application, and the impact of SEO strategies.
 ---
 
 # How I built naminggenie.com

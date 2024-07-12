@@ -1,9 +1,12 @@
 "use client";
 import { GlowingStarsBackgroundCard } from "@/components/ui/glowing-stars";
+import { useDrawerStore } from "@/lib/store/usedrawerstore";
 import { useState } from "react";
 
 const Cta = () => {
   const [hover, setHover] = useState(false);
+  const { setIsOpen } = useDrawerStore();
+
   return (
     <section id="cta" className="w-full inline-flex items-center justify-center">
       <GlowingStarsBackgroundCard className="w-full h-96" hover={hover}>
@@ -11,7 +14,7 @@ const Cta = () => {
           onMouseEnter={() => setHover(true)}
           onMouseLeave={() => setHover(false)}
           onClick={() =>
-            (window.location.href = "mailto:anurag3b@gmail.com")
+            setIsOpen(true)
           }
           className="flex gloww active:translate-x-[3px] active:translate-y-[3px] active:shadow-sm border-2 items-center border-white p-3 gap-3 rounded-full text-white bg-black flex-row group hover:bg-[#C8FF54] transition-all duration-500 ease-in-out"
         >
