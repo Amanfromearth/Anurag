@@ -5,7 +5,7 @@ const Maintext = memo(() => {
   const words = useMemo(() => ["Hello, I'm Anurag Bevinal"], []);
 
   return (
-    <section className="w-full flex p-5 md:p-10 mt-8 bg-transparent">
+    <section className="w-full flex py-5 md:py-10 mt-8 bg-transparent">
       <div className="w-full lg:w-[75%] flex flex-col gap-2 leading-7 text-black dark:text-white text-lg md:text-3xl font-normal">
         <h1 className="text-xl md:text-4xl font-semibold">
           <FlipWords words={words} />

@@ -12,7 +12,7 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <section className="flex flex-col w-full items-center justify-center">
+    <section className="px-5 md:px-10 flex flex-col w-full items-center justify-center">
       <Maintext />
       <Table />
       <Projects/>
