@@ -3,7 +3,6 @@
 import Image from "next/image";
 import useSound from "use-sound";
 import { useState, useCallback } from "react";
-import Link from "next/link";
 
 const Nav = () => {
   const [play] = useSound("/click2.mp3");

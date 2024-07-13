@@ -5,9 +5,11 @@ import path from "path";
 import { ArrowRightIcon } from "lucide-react";
 import ImageGallery from "@/components/self/imagegallery";
 import Meteors from "@/components/magicui/meteor";
+
 export async function generateMetadata(){
   return {
-    description: "Full-stack developer with experience in building scalable web applications and leading projects from concept to deployment. Passionate about learning new technologies and solving real-world challenges through innovative solutions",
+    title: "Anurag's Dev Portfolio",
+    description: "Experienced full-stack developer specializing in scalable web applications and project leadership. Driven by a passion for cutting-edge technologies and creating innovative solutions to real-world problems.",
     alternates: {
       canonical: "https://anurag.be/about",
     },
