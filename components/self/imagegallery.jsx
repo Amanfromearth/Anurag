@@ -1,34 +1,25 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+
+import React, { useState, useCallback, useMemo } from 'react';
 import Image from "next/image";
 import { ArrowRight } from 'lucide-react';
 
+const IMAGES_PER_LOAD = 10;
+
 export default function ImageGallery({ initialImages }) {
-  const [imageSets, setImageSets] = useState([initialImages.slice(0, 10)]);
-  const [loadedCount, setLoadedCount] = useState(10);
-  const [loadingStates, setLoadingStates] = useState([Array(10).fill(false)]);
+  const [loadedCount, setLoadedCount] = useState(IMAGES_PER_LOAD);
 
-  const loadMore = () => {
-    const newCount = loadedCount + 10;
-    const newImages = initialImages.slice(loadedCount, newCount);
-    setImageSets(prevSets => [...prevSets, newImages]);
-    setLoadedCount(newCount);
-    setLoadingStates(prevStates => [...prevStates, Array(newImages.length).fill(false)]);
-  };
-
-  const handleImageLoad = (setIndex, imageIndex) => {
-    setLoadingStates(prevStates => {
-      const newStates = [...prevStates];
-      newStates[setIndex][imageIndex] = true;
-      return newStates;
-    });
-  };
-
-  useEffect(() => {
-    if (loadingStates.every(set => set.every(state => state))) {
-      console.log('All images loaded, layout updated');
+  const imageSets = useMemo(() => {
+    const sets = [];
+    for (let i = 0; i < loadedCount; i += IMAGES_PER_LOAD) {
+      sets.push(initialImages.slice(i, i + IMAGES_PER_LOAD));
     }
-  }, [loadingStates]);
+    return sets;
+  }, [initialImages, loadedCount]);
+
+  const loadMore = useCallback(() => {
+    setLoadedCount(prevCount => Math.min(prevCount + IMAGES_PER_LOAD, initialImages.length));
+  }, [initialImages.length]);
 
   return (
     <div className="space-y-6 text-slate-300">
@@ -38,32 +29,43 @@ export default function ImageGallery({ initialImages }) {
       <p>Welcome to my visual diary. I've often been described by my friends as an average photographer, but I'll let you be the judge of that.</p>
       {imageSets.map((imageSet, setIndex) => (
         <div key={`set-${setIndex}`} className="columns-1 sm:columns-2 gap-4 space-y-4">
-          {imageSet.map((image, imageIndex) => (
-            <div key={`image-${initialImages.indexOf(image)}`} className="break-inside-avoid">
-              <Image
-                src={image.src}
-                alt={image.alt}
-                quality={75}
-                width={0}
-                height={0}
-                sizes="100vw"
-                className="w-full h-auto rounded-lg"
-                onLoad={() => handleImageLoad(setIndex, imageIndex)}
-              />
-            </div>
+          {imageSet.map((image) => (
+            <ImageItem key={image.src} image={image} />
           ))}
         </div>
       ))}
       {loadedCount < initialImages.length && (
-        <div onClick={loadMore} className='w-full flex items-center justify-center'>
-          <button className="group relative inline-flex h-[calc(48px+8px)] items-center justify-center rounded-full bg-neutral-800 py-1 pl-6 pr-14 font-medium text-neutral-50">
-          <span className="z-10 pr-2 group-hover:text-black transition-colors ease-in-out duration-300">Load More</span>
-          <div className="absolute right-1 inline-flex h-12 w-12 items-center justify-end rounded-full bg-greeen transition-[width] ease-in-out duration-300 group-hover:w-[calc(100%-8px)]">
-            <ArrowRight className="mr-3.5 text-black" />
-          </div>
-        </button>
-        </div>
+        <LoadMoreButton onClick={loadMore} />
       )}
+    </div>
+  );
+}
+
+function ImageItem({ image }) {
+  return (
+    <div className="break-inside-avoid">
+      <Image
+        src={image.src}
+        alt={image.alt}
+        quality={75}
+        width={0}
+        height={0}
+        sizes="100vw"
+        className="w-full h-auto rounded-lg"
+      />
+    </div>
+  );
+}
+
+function LoadMoreButton({ onClick }) {
+  return (
+    <div onClick={onClick} className='w-full flex items-center justify-center'>
+      <button className="group relative inline-flex h-[calc(48px+8px)] items-center justify-center rounded-full bg-neutral-800 py-1 pl-6 pr-14 font-medium text-neutral-50">
+        <span className="z-10 pr-2 group-hover:text-black transition-colors ease-in-out duration-300">Load More</span>
+        <div className="absolute right-1 inline-flex h-12 w-12 items-center justify-end rounded-full bg-greeen transition-[width] ease-in-out duration-300 group-hover:w-[calc(100%-8px)]">
+          <ArrowRight className="mr-3.5 text-black" />
+        </div>
+      </button>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 ---
 Metatitle: Building a Custom Giveaway Page for a Local Farm Shop in Kannada
-Metadescription: Discover how I created a tailored giveaway website using Next.js, Supabase, and Prisma to help a family-run farm shop increase engagement and traffic in Karnataka, India.
+Metadescription: Learn how I built a tailored giveaway website using Next.js, Supabase, and Prisma for a family-run farm shop to boost engagement in Karnataka, India.
 ---
 
 # How I Built a Giveaway Page

@@ -10,7 +10,7 @@ const dmsans = DM_Sans({ subsets: ["latin"] });
 export const metadata = {
   title: "Anurag's Portfolio",
   author: "Anurag",
-  keywords: "full-stack developer, web applications, portfolio, front-end developer",
+  keywords: "full-stack developer, Anurag bevinal's portfolio, web applications, portfolio, front-end developer",
   openGraph: {
     type: "website",
     url: "https://anurag.be",

@@ -1,6 +1,6 @@
 ---
 Metatitle: How I Built Kineticx | Typography Video Generator
-Metadescription: Explore the development process of Kineticx, a typography video generator built with Next.js, Remotion, Zustand, and Vercel. Learn about its features and upcoming updates.
+Metadescription: Discover the creation of Kineticx, a typography video generator using Next.js, Remotion, Zustand, and Vercel. Explore its features and future updates.
 ---
 
 # How I Built Kineticx

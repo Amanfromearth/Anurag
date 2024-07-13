@@ -2,13 +2,12 @@ import React from "react";
 import Maintext from "@/components/self/Maintext";
 import { Table } from "@/components/self/Table";
 import Cta from "@/components/self/cta";
-import SoundButton from "@/components/self/soundButton";
 import Projects from "@/components/self/Projects";
 import Currently from "@/components/self/currently";
 
 export const metadata = {
   description:
-    "Full-stack developer with experience in building scalable web applications and leading projects from concept to deployment. Passionate about learning new technologies and solving real-world challenges through innovative solutions",
+    "Full-stack developer with experience in building scalable web applications and leading projects from concept to deployment. Passionate about learning new technologies and solving real-world challenges through innovative solutions. Anurag Bevinal",
   canonical: "https://anurag.be/",}
 
 export default function Home() {

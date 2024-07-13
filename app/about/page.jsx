@@ -78,7 +78,7 @@ const Page = async () => {
           src="/profile-pic2.jpg"
           width={1024}
           height={1024}
-          alt="Anurag's profile picture"
+          alt="Anurag Bevinal's Photo"
           className="w-full h-auto"
         />
       </div>
