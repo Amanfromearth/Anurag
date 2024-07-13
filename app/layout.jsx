@@ -40,7 +40,11 @@ export default function RootLayout({ children }) {
           </main>
         </div>
         <DrawerComponent />
-        <Script src="https://scripts.simpleanalyticscdn.com/latest.js" />
+        <Script 
+          src="https://scripts.simpleanalyticscdn.com/latest.js" 
+          strategy="afterInteractive"
+          crossOrigin="anonymous"
+        />
       </body>
     </html>
   );
