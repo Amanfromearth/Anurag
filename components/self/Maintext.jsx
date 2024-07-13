@@ -8,7 +8,7 @@ const Maintext = memo(() => {
     <section className="w-full flex p-5 md:p-10 mt-8 bg-transparent">
       <div className="w-full lg:w-[75%] flex flex-col gap-2 leading-7 text-black dark:text-white text-lg md:text-3xl font-normal">
         <h1 className="text-xl md:text-4xl font-semibold">
-        Hello, I'm Anurag Bevinal
+          <FlipWords words={words} />
         </h1>
         <p className="text-neutral-500">
           Full-Stack Developer
