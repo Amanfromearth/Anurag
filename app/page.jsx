@@ -1,7 +1,6 @@
 import React from "react";
 import Maintext from "@/components/self/Maintext";
 import { Table } from "@/components/self/Table";
-import Cta from "@/components/self/cta";
 import Projects from "@/components/self/Projects";
 import Currently from "@/components/self/currently";
 
@@ -17,7 +16,6 @@ export default function Home() {
       <Table />
       <Projects/>
       <Currently/>
-      <Cta />
       </section>
   );
 }

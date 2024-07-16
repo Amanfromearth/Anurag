@@ -1,6 +1,6 @@
 import { separator2 } from "@/lib/retiriver";
 import "/public/css/blog.css";
-import Cta from "@/components/self/cta";
+
 
 async function getBlogData() {
   const filePath = './content/kineticx.md';
@@ -29,7 +29,6 @@ export default async function BlogPage() {
           dangerouslySetInnerHTML={{ __html: data.text }}
         />
       </div>
-      <Cta />
     </section>
   );
 }

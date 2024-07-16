@@ -1,37 +1,38 @@
 "use client";
 import { ArrowUp } from "lucide-react";
 import React, { useCallback, useState } from "react";
-import useSound from "use-sound";
 import { animateScroll as scroll } from "react-scroll";
 import { useDrawerStore } from "@/lib/store/usedrawerstore";
+import { useSound } from "../hooks/usesound";
 
 const Footer = () => {
-  const [play] = useSound("/click2.mp3");
+  const playSound = useSound();  // Use our custom useSound hook
   const [isLoading, setIsLoading] = useState(false);
   const { setIsOpen } = useDrawerStore();
+
   const handleTop = useCallback(() => {
-    play();
+    playSound();
     scroll.scrollToTop({
       containerId: "scrollable-content",
       duration: 500,
       delay: 0,
       smooth: "easeInOutQuart"
     });
-  }, [play]);
+  }, [playSound]);
 
   const handleClick = useCallback(
     (event, url) => {
       event.preventDefault();
       if (isLoading) return;
       setIsLoading(true);
-      play();
+      playSound();
       setTimeout(() => {
         if (typeof window !== "undefined") {
           window.location.href = url;
         }
       }, 300);
     },
-    [play, isLoading]
+    [playSound, isLoading]
   );
 
   return (
@@ -42,7 +43,6 @@ const Footer = () => {
         </div>
         <div className="w-0 h-[2px] bg-white group-hover:w-full transition-all ease-in-out duration-300" />
       </button>
-
       <button className="group text-white flex flex-col cursor-pointer" onClick={() => setIsOpen(true)}>
         Contact Me
         <div className="w-0 h-[2px] bg-white group-hover:w-full transition-all ease-in-out duration-300" />
@@ -50,7 +50,5 @@ const Footer = () => {
     </footer>
   );
 };
-
-
 
 export default Footer;

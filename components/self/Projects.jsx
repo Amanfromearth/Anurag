@@ -66,7 +66,7 @@ const ProjectCard = ({
     <div className="py-3 px-1 md:px-5 w-full flex flex-col justify-between">
       <div className="w-full flex flex-col gap-3">
         <h2 className="font-semibold text-2xl">{title}</h2>
-        <p className="w-[85%] md:text-lg text-neutral-400">{description}</p>
+        <p className="w-[90%] md:text-lg text-neutral-400">{description}</p>
       </div>
       <div className="w-full flex justify-center gap-3 text-xs md:text-sm items-center">
         <a

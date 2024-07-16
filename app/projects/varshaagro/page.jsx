@@ -29,7 +29,7 @@ export default async function BlogPage() {
           dangerouslySetInnerHTML={{ __html: data.text }}
         />
       </div>
-      <Cta />
+
     </section>
   );
 }

@@ -3,23 +3,22 @@ import { GlowingStarsBackgroundCard } from "@/components/ui/glowing-stars";
 import { useDrawerStore } from "@/lib/store/usedrawerstore";
 import Image from "next/image";
 import { useState, useCallback } from "react";
-import useSound from "use-sound";
+import { useSound } from "../hooks/usesound";
 
 const Cta = () => {
   const [hover, setHover] = useState(false);
   const { setIsOpen } = useDrawerStore();
-  const [play] = useSound("/click2.mp3");
+  const playSound = useSound(); 
 
   const handleClick = useCallback(
     (event) => {
       event.preventDefault();
-
-      play();
+      playSound();
       setTimeout(() => {
         setIsOpen(true);
       }, 300);
     },
-    [play, setIsOpen]
+    [playSound, setIsOpen]
   );
 
   return (

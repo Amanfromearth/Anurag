@@ -1,23 +1,20 @@
 "use client";
-
 import Image from "next/image";
-import useSound from "use-sound";
-import { useState, useCallback } from "react";
+import { useCallback } from "react";
+import { useSound } from "../hooks/usesound";
+import { useRouter } from 'next/navigation';
 
 const Nav = () => {
-  const [play] = useSound("/click2.mp3");
-  const [isLoading, setIsLoading] = useState(false);
+  const playSound = useSound();
+  const router = useRouter();
 
   const handleClick = useCallback((event, url) => {
     event.preventDefault();
-    if (isLoading) return;
-    
-    setIsLoading(true);
-    play();
+    playSound();
     setTimeout(() => {
-      window.location.href = url;
+      router.push(url);
     }, 300);
-  }, [play]);
+  }, [playSound, router]);
 
   return (
     <nav className="w-full sticky top-0 z-30 h-16 flex items-center justify-between px-4 py-4 md:px-8 text-white md:text-xl bg-dark-blue border-b border-neutral-700">

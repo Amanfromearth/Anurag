@@ -23,7 +23,7 @@ const Maintext = memo(() => {
           </p>
         </div>
         <p>
-          In the past two years, I co-founded Zlock Technologies and developed web startups, gaining diverse skills. I focus on creating scalable, user-friendly applications to solve real-world challenges, innovating and adapting in dynamic environments to deliver impactful solutions.
+          In the past two years, I co-founded Zlock Technologies and developed web startups, gaining diverse skills. I focus on creating scalable, user-friendly applications to solve real-world challenges, innovating and adapting in dynamic environments to deliver impactful solution.
         </p>
       </div>
     </section>
