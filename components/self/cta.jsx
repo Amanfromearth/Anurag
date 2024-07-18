@@ -3,7 +3,7 @@ import { GlowingStarsBackgroundCard } from "@/components/ui/glowing-stars";
 import { useDrawerStore } from "@/lib/store/usedrawerstore";
 import Image from "next/image";
 import { useState, useCallback } from "react";
-import { useSound } from "../hooks/usesound";
+import { useSound } from "../hooks/useSound";
 
 const Cta = () => {
   const [hover, setHover] = useState(false);

@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useCallback } from "react";
-import { useSound } from "../hooks/usesound";
+import { useSound } from "../hooks/useSound";
 import { useRouter } from 'next/navigation';
 
 const Nav = () => {

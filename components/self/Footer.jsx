@@ -3,7 +3,7 @@ import { ArrowUp } from "lucide-react";
 import React, { useCallback, useState } from "react";
 import { animateScroll as scroll } from "react-scroll";
 import { useDrawerStore } from "@/lib/store/usedrawerstore";
-import { useSound } from "../hooks/usesound";
+import { useSound } from "../hooks/useSound";
 
 const Footer = () => {
   const playSound = useSound();  // Use our custom useSound hook
