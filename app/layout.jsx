@@ -5,6 +5,7 @@ import Footer from "@/components/self/Footer";
 import DrawerComponent from "@/components/self/DrawerComponent";
 import Cta from "@/components/self/cta";
 import { SoundProvider } from "@/components/hooks/SoundContext";
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 const dmsans = DM_Sans({ subsets: ["latin"] });
 
@@ -46,6 +47,7 @@ export default function RootLayout({ children }) {
         <DrawerComponent />
         </SoundProvider>
       </body>
+      <GoogleAnalytics gaId="G-E0FKVBGVHZ" />
     </html>
   );
 }
