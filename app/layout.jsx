@@ -1,5 +1,5 @@
 import { DM_Sans } from "next/font/google";
-import Head from "next/head";
+import { GoogleAnalytics } from '@next/third-parties/google'
 import "./globals.css";
 import Nav from "@/components/self/Nav";
 import Footer from "@/components/self/Footer";
@@ -32,19 +32,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="dark">
-      <Head>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-E0FKVBGVHZ"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-E0FKVBGVHZ');
-            `,
-          }}
-        />
-      </Head>
+     
       <body className={`${dmsans.className} relative`}>
         <SoundProvider>
           <div className="fixed inset-0 hidden md:block h-screen -z-10 bg-[radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]" />
@@ -59,6 +47,7 @@ export default function RootLayout({ children }) {
           <DrawerComponent />
         </SoundProvider>
       </body>
+      <GoogleAnalytics gaId="G-E0FKVBGVHZ" />
     </html>
   );
 }
