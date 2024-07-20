@@ -19,7 +19,7 @@ const Nav = () => {
   return (
     <nav className="w-full sticky top-0 z-30 h-16 flex items-center justify-between px-4 py-4 md:px-8 text-white md:text-xl bg-dark-blue border-b border-neutral-700">
       <NavLink href="/#projects" onClick={handleClick}>
-        Projects
+        Work
       </NavLink>
       <a onClick={(e) => handleClick(e, "/")} className="h-full group" href="/">
         <Image

@@ -41,7 +41,6 @@ const projectsData = [
 
 const ProjectCard = ({
   image,
-  blurUrl,
   title,
   description,
   websiteUrl,
@@ -96,7 +95,7 @@ const Projects = () => {
   return (
     <div id="projects" className="w-full pt-16 flex flex-col gap-5">
       <h2 className="max-w-3xl w-fit items-center scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0">
-        Featured Projects
+        Featured Works
       </h2>
       <div className="flex w-full items-center justify-center flex-col">
         {projectsData.map((project, index) => (
