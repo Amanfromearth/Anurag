@@ -60,6 +60,7 @@ const ProjectCard = ({
     <Image
       width={500}
       height={500}
+      priority
       src={image}
       placeholder="blur"
       blurDataURL={blurUrl}
