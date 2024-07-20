@@ -1,5 +1,9 @@
+"use client"
+import { useIsVisible } from "@/lib/fadein-helper";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
+import { useRef } from "react";
+
 
 const projectsData = [
   {
@@ -95,17 +99,30 @@ const ProjectCard = ({
   </div>
 );
 
-const Projects = () => (
-  <div id="projects" className="w-full pt-16 flex flex-col gap-5">
-    <h2 className=" max-w-3xl w-fit items-center scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0">
-      Featured Projects
-    </h2>
-    <div className="flex w-full items-center justify-center flex-col">
-      {projectsData.map((project, index) => (
-        <ProjectCard key={project.title} {...project} />
-      ))}
+const Projects = () => {
+  const refs = projectsData.map(() => useRef());
+  const isVisibles = refs.map(ref => useIsVisible(ref));
+
+  return (
+    <div id="projects" className="w-full pt-16 flex flex-col gap-5">
+      <h2 className="max-w-3xl w-fit items-center scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0">
+        Featured Projects
+      </h2>
+      <div className="flex w-full items-center justify-center flex-col">
+        {projectsData.map((project, index) => (
+          <div
+            key={project.title}
+            ref={refs[index]}
+            className={`transition-opacity ease-in duration-700 ${
+              isVisibles[index] ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            <ProjectCard {...project} />
+          </div>
+        ))}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default Projects;

@@ -31,7 +31,7 @@ const Cta = () => {
           onMouseEnter={() => setHover(true)}
           onMouseLeave={() => setHover(false)}
           onClick={handleClick}
-          className="flex gloww active:translate-x-[3px] active:translate-y-[3px] active:shadow-sm border-2 items-center border-white p-3 gap-3 rounded-full text-white bg-black flex-row group hover:bg-[#C8FF54] transition-all duration-500 ease-in-out"
+          className="flex gloww active:translate-x-[3px] active:translate-y-[3px] active:shadow-sm border-2 items-center border-white w-64 md:w-80 justify-center p-3 gap-3 rounded-full text-white bg-black flex-row group hover:bg-[#C8FF54] transition-all duration-500 ease-in-out"
         >
           <div className="rounded-full group-hover:bg-white bg-[#C8FF54] text-black p-1 transition-all group-hover:rotate-180 duration-500 ease-in-out group-hover:translate-x-[193px] md:group-hover:translate-x-[242px]">
             <Image width={0} height={0} alt="logo" className="w-5 md:w-7" src="/zap.svg" />

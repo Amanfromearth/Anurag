@@ -145,7 +145,7 @@ export default function DrawerComponent() {
               className="w-full"
               onClick={() =>
                 window.open(
-                  "https://drive.google.com/file/d/1CDC2V-rU8DxTzAkkdqMgCfiwhZwiM3fS/view?usp=sharing",
+                  "https://drive.google.com/file/d/1vanE-XQ_8-WvyuJ5x-FsMcozi_3vfQn-/view?usp=sharing",
                   "_blank"
                 )
               }
