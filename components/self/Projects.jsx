@@ -48,8 +48,8 @@ const ProjectCard = ({
 }) => (
   <div className="grid grid-rows-2 md:grid-rows-none md:grid-cols-2 bg-[#FFFFFF08] border-dashed border-2 my-3 p-3 rounded-lg border-neutral-600">
     <Image
-      width={500}
-      height={500}
+      width={200}
+      height={200}
       priority
       src={image}
       quality={75}
