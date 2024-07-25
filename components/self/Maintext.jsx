@@ -1,5 +1,5 @@
-import { memo, useMemo } from 'react';
-import { FlipWords } from '../ui/flipwords';
+import { memo, useMemo } from "react";
+import { FlipWords } from "../ui/flipwords";
 
 const Maintext = memo(() => {
   const words = useMemo(() => ["Hello, I'm Anurag Bevinal"], []);
@@ -10,11 +10,9 @@ const Maintext = memo(() => {
         <h1 className="text-xl md:text-4xl font-semibold">
           <FlipWords words={words} />
         </h1>
-        <p className="text-neutral-500">
-          Full-Stack Developer
-        </p>
+        <p className="text-neutral-500">Full-Stack Developer</p>
         <div className="flex items-center gap-2">
-          <span className="relative w-2 h-2">
+        <span className="relative w-2 h-2">
             <span className="absolute w-2 h-2 bg-green-300 rounded-full opacity-75 animate-ping"></span>
             <span className="absolute w-2 h-2 bg-green-400 rounded-full"></span>
           </span>
@@ -23,13 +21,16 @@ const Maintext = memo(() => {
           </p>
         </div>
         <p>
-          In the past two years, I co-founded Zlock Technologies and developed web startups, gaining diverse skills. I focus on creating scalable, user-friendly applications to solve real-world challenges, innovating and adapting in dynamic environments to deliver impactful solution.
+          In the past two years, I co-founded Zlock Technologies and developed
+          web startups, gaining diverse skills. I focus on creating scalable,
+          user-friendly applications to solve real-world challenges, innovating
+          and adapting in dynamic environments to deliver impactful solution.
         </p>
       </div>
     </section>
   );
 });
 
-Maintext.displayName = 'Maintext';
+Maintext.displayName = "Maintext";
 
 export default Maintext;

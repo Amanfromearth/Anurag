@@ -1,4 +1,3 @@
-// components/DrawerComponent.tsx
 "use client";
 import { useState, useEffect, useRef } from "react";
 import {
@@ -10,7 +9,7 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer";
 import { Button } from "@/components/ui/button";
-import { FileText, Github, Mail, Share2 } from "lucide-react";
+import { FileText, Github, LinkedinIcon, Mail } from "lucide-react";
 import { useDrawerStore } from "@/lib/store/usedrawerstore";
 
 
@@ -18,7 +17,6 @@ export default function DrawerComponent() {
   const [mounted, setMounted] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
   const [isHidden, setIsHidden] = useState(false);
-  const [copied, setCopied] = useState(false);
   const scrollableRef = useRef(null);
   const observerRef = useRef(null);
 
@@ -71,18 +69,6 @@ export default function DrawerComponent() {
     };
   }, []);
 
-  const handleShareWebsite = () => {
-    const websiteUrl = "https://anurag.be";
-    navigator.clipboard
-      .writeText(websiteUrl)
-      .then(() => {
-        setCopied(true);
-        setTimeout(() => setCopied(false), 2000);
-      })
-      .catch((err) => {
-        console.error("Failed to copy URL: ", err);
-      });
-  };
 
   if (!mounted) {
     return null;
@@ -125,10 +111,12 @@ export default function DrawerComponent() {
             <Button
               variant="outline"
               className="w-full border-neutral-700 justify-start text-left font-normal"
-              onClick={handleShareWebsite}
+              onClick={() =>
+                window.open("https://github.com/Amanfromearth", "_blank")
+              }
             >
-              <Share2 className="mr-2 h-4 w-4" />
-              {copied ? "Copied URL!" : "Share My Website"}
+              <LinkedinIcon className="mr-2 h-4 w-4" />
+              Linkedin Profile
             </Button>
             <Button
               variant="outline"
