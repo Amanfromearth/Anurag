@@ -112,7 +112,7 @@ export default function DrawerComponent() {
               variant="outline"
               className="w-full border-neutral-700 justify-start text-left font-normal"
               onClick={() =>
-                window.open("https://github.com/Amanfromearth", "_blank")
+                window.open("https://www.linkedin.com/in/anuragbevinal/", "_blank")
               }
             >
               <LinkedinIcon className="mr-2 h-4 w-4" />
