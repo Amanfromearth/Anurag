@@ -95,7 +95,7 @@ const Star = ({ isGlowing, delay }) => {
         background: isGlowing ? "#fff" : "#666",
       }}
       transition={{
-        duration: 2,
+        duration: 0.6,
         ease: "easeInOut",
         delay: delay,
       }}
@@ -114,7 +114,7 @@ const Glow = ({ delay }) => {
         opacity: 1,
       }}
       transition={{
-        duration: 2,
+        duration: 1,
         ease: "easeInOut",
         delay: delay,
       }}

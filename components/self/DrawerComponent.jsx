@@ -133,7 +133,7 @@ export default function DrawerComponent() {
               className="w-full"
               onClick={() =>
                 window.open(
-                  "https://drive.google.com/file/d/1vanE-XQ_8-WvyuJ5x-FsMcozi_3vfQn-/view?usp=sharing",
+                  "https://drive.google.com/file/d/1WNK8TSl9Hi0EYD6Qcr0HctaAOYGlPJf5/view?usp=drive_link",
                   "_blank"
                 )
               }
