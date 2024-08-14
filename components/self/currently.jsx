@@ -7,7 +7,7 @@
           What I'm Currently Doing
         </h2>
         <ul className="my-6 md:text-lg ml-6 list-disc">
-          <li>Looking for a full-time job</li>
+          <li>Working as a founding engineer at dodo payments</li>
           <li>Building Kineticx</li>
           <li>Learning Go for backend development</li>
         </ul>
