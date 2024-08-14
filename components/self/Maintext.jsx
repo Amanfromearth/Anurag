@@ -17,7 +17,7 @@ const Maintext = memo(() => {
             <span className="absolute w-2 h-2 bg-green-400 rounded-full"></span>
           </span>
           <p className="text-base text-neutral-500">
-            Available for full-time role
+            Happy to Connect
           </p>
         </div>
         <p>
