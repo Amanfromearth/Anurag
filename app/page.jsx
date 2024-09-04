@@ -1,4 +1,3 @@
-import React from "react";
 import Maintext from "@/components/self/Maintext";
 import { Table } from "@/components/self/Table";
 import Projects from "@/components/self/Projects";
@@ -9,6 +8,11 @@ export const metadata = {
     "Full-stack developer with experience in building scalable web applications and leading projects from concept to deployment. Passionate about learning new technologies and solving real-world challenges through innovative solutions. Anurag Bevinal",
   alternates: {
     canonical: "https://anurag.be/",
+  },
+  openGraph: {
+    images: "/header.webp",
+    locale: "en_US",
+    site_name: "Anurag Bevinal's Portfolio",
   },
 };
 
