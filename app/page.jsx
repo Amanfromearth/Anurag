@@ -10,9 +10,13 @@ export const metadata = {
     canonical: "https://anurag.be/",
   },
   openGraph: {
+    title: "Anurag's Portfolio",
+    description: "Full-stack developer with experience in building scalable web applications",
+    url: "https://anurag.be/",
+    siteName: "Anurag Bevinal's Portfolio",
     images: "/header.webp",
-    locale: "en_US",
-    site_name: "Anurag Bevinal's Portfolio",
+    locale: "en_Uk",
+    type: "website",
   },
 };
 
