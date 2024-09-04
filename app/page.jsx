@@ -11,7 +11,7 @@ export const metadata = {
   },
   openGraph: {
     title: "Anurag's Portfolio",
-    description: "Full-stack developer with experience in building scalable web applications",
+    description: "Full-stack developer with experience in building websites from idea to completion.",
     url: "https://anurag.be/",
     siteName: "Anurag Bevinal's Portfolio",
     images: "/header.webp",
