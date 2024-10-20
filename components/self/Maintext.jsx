@@ -11,15 +11,13 @@ const Maintext = memo(() => {
           <FlipWords words={words} />
         </h1>
         <p className="text-neutral-500">Full-Stack Developer</p>
-        {/* <div className="flex items-center gap-2">
-        <span className="relative w-2 h-2">
+        <div className="flex items-center gap-2">
+          <span className="relative w-2 h-2">
             <span className="absolute w-2 h-2 bg-green-300 rounded-full opacity-75 animate-ping"></span>
             <span className="absolute w-2 h-2 bg-green-400 rounded-full"></span>
           </span>
-          <p className="text-base text-neutral-500">
-            Happy to Connect
-          </p>
-        </div> */}
+          <p className="text-base text-neutral-500">Currently working at DodoPayments</p>
+        </div>
         <p>
           In the past two years, I co-founded Zlock Technologies and developed
           web startups, gaining diverse skills. I focus on creating scalable,

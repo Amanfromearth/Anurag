@@ -1,5 +1,5 @@
 import { DM_Sans } from "next/font/google";
-import { GoogleAnalytics } from '@next/third-parties/google'
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import Nav from "@/components/self/Nav";
 import Footer from "@/components/self/Footer";
@@ -12,19 +12,22 @@ const dmsans = DM_Sans({ subsets: ["latin"] });
 export const metadata = {
   title: "Anurag's Portfolio",
   author: "Anurag",
-  keywords: "full-stack developer, Anurag bevinal's portfolio, web applications, portfolio, front-end developer",
+  keywords:
+    "full-stack developer, Anurag bevinal's portfolio, web applications, portfolio, front-end developer",
   openGraph: {
     type: "website",
     url: "https://anurag.be",
     title: "Anurag's Portfolio",
-    description: "Full-stack developer portfolio showcasing projects and skills",
+    description:
+      "Full-stack developer portfolio showcasing projects and skills",
     image: "/header.webp",
   },
   twitter: {
     card: "summary_large_image",
     site: "@amanfromearth_",
     title: "Anurag's Portfolio",
-    description: "Full-stack developer portfolio showcasing projects and skills",
+    description:
+      "Full-stack developer portfolio showcasing projects and skills",
     image: "/header.webp",
   },
 };
@@ -32,7 +35,6 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="dark">
-     
       <body className={`${dmsans.className} relative`}>
         <SoundProvider>
           <div className="fixed inset-0 hidden md:block h-screen -z-10 bg-[radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]" />
