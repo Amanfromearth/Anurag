@@ -7,7 +7,7 @@ Metadescription: Discover the creation of Kineticx, a typography video generator
 
 Kineticx is a tool that generates typography videos from descriptions in **seconds**. These videos are perfect for marketing, content creation, presentations, and more.
 
-![remotion website](/remotion.webp)
+![remotion website](../../assets/images/remotion.webp)
 
 ## A Video Generated in Kineticx
 
@@ -26,13 +26,13 @@ Want to try it yourself? Head over to [Kineticx](https://kineticx.vercel.app/das
 
 Added an option to select and edit any frame's text. This was built using Zustand to manage the global state of selecting frames across components.
 
-![kineticx frame editing option](/frameedit.webp)
+![kineticx frame editing option](../../assets/images/frameedit.webp)
 
 ### Choosing Colors
 
 Added an option to select from four different color sets from the colors tab. This was built using Zustand to manage the global state of selecting colors across components.
 
-![kineticx color change option](/coloredit.webp)
+![kineticx color change option](../../assets/images/coloredit.webp)
 
 ## Upcoming Features (Work in Progress)
 
