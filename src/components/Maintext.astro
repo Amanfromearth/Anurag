@@ -1,0 +1,70 @@
+---
+// Intro block. The heading animates in per-letter with a blur reveal — the
+// same effect the old framer-motion FlipWords produced, now pure CSS.
+const heading = "Hello, I'm Anurag Bevinal";
+const letters = [...heading];
+---
+
+<section class="w-full flex py-5 md:py-10 mt-8 bg-transparent">
+  <div
+    class="w-full lg:w-[75%] flex flex-col gap-2 leading-7 text-black dark:text-white text-lg md:text-3xl font-normal"
+  >
+    <h1 class="text-xl md:text-4xl font-semibold text-neutral-100">
+      {
+        letters.map((char, i) => (
+          <span
+            class="blur-letter inline-block"
+            style={`animation-delay:${(i * 0.08).toFixed(2)}s`}
+          >
+            {char === ' ' ? ' ' : char}
+          </span>
+        ))
+      }
+    </h1>
+    <p class="text-neutral-500">Full-Stack Developer</p>
+    <div class="flex items-center gap-2">
+      <span class="relative w-2 h-2">
+        <span
+          class="absolute w-2 h-2 bg-green-300 rounded-full opacity-75 animate-ping"
+        ></span>
+        <span class="absolute w-2 h-2 bg-green-400 rounded-full"></span>
+      </span>
+      <p class="text-base text-neutral-500">
+        Currently working at DodoPayments
+      </p>
+    </div>
+    <p>
+      In the past two years, I co-founded Zlock Technologies and developed web
+      startups, gaining diverse skills. I focus on creating scalable,
+      user-friendly applications to solve real-world challenges, innovating and
+      adapting in dynamic environments to deliver impactful solution.
+    </p>
+  </div>
+</section>
+
+<style>
+  .blur-letter {
+    opacity: 0;
+    filter: blur(8px);
+    transform: translateY(10px);
+    animation: letter-in 0.4s var(--ease-out, cubic-bezier(0.23, 1, 0.32, 1))
+      forwards;
+  }
+
+  @keyframes letter-in {
+    to {
+      opacity: 1;
+      filter: blur(0);
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .blur-letter {
+      opacity: 1;
+      filter: none;
+      transform: none;
+      animation: none;
+    }
+  }
+</style>

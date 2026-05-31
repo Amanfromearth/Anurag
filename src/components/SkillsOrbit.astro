@@ -1,0 +1,109 @@
+---
+// Orbiting skill icons. The orbit motion is the pure-CSS `animate-orbit`
+// keyframe (defined in globals.css). Responsiveness — which previously used a
+// JS resize listener — is now a CSS transform: scale at the mobile breakpoint.
+const DURATION = 20;
+
+interface Orbit {
+  icon: string;
+  radius: number;
+  iconSize: number;
+  reverse: boolean;
+  delay: number;
+}
+
+const iconSizes: Record<string, number> = {
+  gitHub: 40,
+  nodejs: 40,
+  python: 40,
+  javascript: 40,
+  react: 40,
+  mongodb: 50,
+  tailwind: 50,
+  nextjs: 50,
+  css: 50,
+  prisma: 40,
+};
+
+const innerIcons = ['react', 'javascript', 'gitHub', 'python'];
+const outerIcons = ['nextjs', 'tailwind', 'nodejs', 'mongodb', 'css', 'prisma'];
+
+const build = (
+  icons: string[],
+  radius: number,
+  fallbackSize: number,
+  reverse: boolean,
+): Orbit[] =>
+  icons.map((icon, index) => ({
+    icon,
+    radius,
+    iconSize: iconSizes[icon] ?? fallbackSize,
+    reverse,
+    delay: (index / icons.length) * DURATION,
+  }));
+
+const orbits: Orbit[] = [
+  ...build(innerIcons, 80, 30, false),
+  ...build(outerIcons, 190, 50, true),
+];
+const radii = [80, 190];
+const roundIcons = new Set(['nextjs', 'gitHub']);
+---
+
+<div
+  class="relative flex h-[450px] w-full max-w-lg items-center justify-center overflow-hidden rounded-lg dark:bg-dark-blue scale-[0.8] md:scale-100"
+>
+  <span
+    class="pointer-events-none whitespace-pre-wrap bg-linear-to-b from-black to-gray-300/80 bg-clip-text text-center text-6xl lg:text-8xl font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10"
+  >
+    Skills
+  </span>
+
+  {
+    radii.map((r) => (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="pointer-events-none absolute inset-0 h-full w-full"
+      >
+        <circle
+          class="stroke-1 stroke-white/10"
+          cx="50%"
+          cy="50%"
+          r={r}
+          fill="none"
+          stroke-dasharray="4 4"
+        />
+      </svg>
+    ))
+  }
+
+  {
+    orbits.map(({ icon, iconSize, radius, reverse, delay }) => (
+      <div
+        class:list={[
+          'absolute flex h-full w-full transform-gpu animate-orbit items-center justify-center',
+          reverse && 'orbit-reverse',
+        ]}
+        style={`--duration:${DURATION}; --radius:${radius}; --delay:${-delay}; animation-delay:calc(var(--delay)*1000ms);`}
+      >
+        <img
+          src={`/icons/${icon}.svg`}
+          width={iconSize}
+          height={iconSize}
+          alt={`${icon} icon`}
+          loading="lazy"
+          class:list={[
+            iconSize === 40 && 'rounded-full',
+            roundIcons.has(icon) && 'bg-white rounded-full',
+          ]}
+        />
+      </div>
+    ))
+  }
+</div>
+
+<style>
+  .orbit-reverse {
+    animation-direction: reverse;
+  }
+</style>

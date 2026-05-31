@@ -1,0 +1,51 @@
+---
+import { ArrowUp } from 'lucide-astro';
+// Footer: "Back to Top" smooth-scrolls the scroll container; "Contact Me"
+// opens the React drawer island via a CustomEvent.
+---
+
+<footer
+  id="footer"
+  class="w-full bottom-0 z-30 h-16 flex items-center justify-between px-4 py-4 md:px-8 text-black dark:text-white md:text-xl bg-dark-blue border-t border-neutral-700"
+>
+  <button
+    id="back-to-top"
+    class="group flex flex-col text-white cursor-pointer"
+  >
+    <div class="flex flex-row items-center gap-1 group">
+      Back to Top
+      <ArrowUp
+        class="group-hover:-translate-y-1 transition-transform ease-out duration-300"
+      />
+    </div>
+    <div
+      class="w-0 h-[2px] bg-white group-hover:w-full transition-[width] ease-out duration-300"
+    >
+    </div>
+  </button>
+
+  <button id="footer-contact" class="group text-white flex flex-col cursor-pointer">
+    Contact Me
+    <div
+      class="w-0 h-[2px] bg-white group-hover:w-full transition-[width] ease-out duration-300"
+    >
+    </div>
+  </button>
+</footer>
+
+<script>
+  import { playSound } from '@/lib/sound';
+  import { openContactDrawer } from '@/lib/contact';
+
+  document.getElementById('back-to-top')?.addEventListener('click', () => {
+    playSound();
+    document
+      .getElementById('scrollable-content')
+      ?.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  document.getElementById('footer-contact')?.addEventListener('click', () => {
+    playSound();
+    openContactDrawer();
+  });
+</script>

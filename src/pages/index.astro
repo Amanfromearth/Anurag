@@ -1,0 +1,26 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Maintext from '@/components/Maintext.astro';
+import SkillsOrbit from '@/components/SkillsOrbit.astro';
+import Projects from '@/components/Projects.astro';
+import Currently from '@/components/Currently.astro';
+
+const description =
+  'Full-stack developer with experience in building scalable web applications and leading projects from concept to deployment. Passionate about learning new technologies and solving real-world challenges through innovative solutions. Anurag Bevinal';
+---
+
+<Layout
+  title="Anurag's Portfolio"
+  description={description}
+  canonical="/"
+  ogDescription="Full-stack developer with experience in building websites from idea to completion."
+>
+  <section
+    class="px-5 md:px-10 flex flex-col w-full items-center justify-center"
+  >
+    <Maintext />
+    <SkillsOrbit />
+    <Projects />
+    <Currently />
+  </section>
+</Layout>

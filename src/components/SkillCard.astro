@@ -1,0 +1,22 @@
+---
+import Meteors from '@/components/Meteors.astro';
+
+interface Props {
+  category: string;
+  skills: string[];
+}
+
+const { category, skills } = Astro.props;
+---
+
+<div
+  class="relative cursor-pointer hover:border-neutral-400 transition-colors ease-out duration-300 group overflow-hidden rounded-lg border bg-neutral-950 p-5 md:shadow-xl"
+>
+  <Meteors number={30} class="hidden group-hover:block" />
+  <div class="w-full h-full">
+    <h3 class="font-semibold mb-2">{category}</h3>
+    <ul class="list-disc list-inside">
+      {skills.map((skill) => <li class="text-sm">{skill}</li>)}
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '@/layouts/Layout.astro';
+import '@/styles/blog.css';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<Layout
+  title={entry.data.Metatitle}
+  description={entry.data.Metadescription}
+  canonical={`/projects/${entry.id}`}
+>
+  <section class="w-full h-full">
+    <div
+      class="px-5 md:mx-auto flex flex-col pt-24 max-w-3xl items-center justify-center"
+    >
+      <article class="blog-content mb-8">
+        <Content />
+      </article>
+    </div>
+  </section>
+</Layout>

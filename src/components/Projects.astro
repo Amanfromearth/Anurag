@@ -1,0 +1,115 @@
+---
+import { Picture } from 'astro:assets';
+import { ArrowRight, ArrowUpRight } from 'lucide-astro';
+import type { ImageMetadata } from 'astro';
+
+import naminggenie from '@/assets/images/naminggenie.webp';
+import remotion from '@/assets/images/remotion.webp';
+import varshaagro2 from '@/assets/images/varshaagro2.webp';
+import cryptokids from '@/assets/images/cryptokids.webp';
+
+interface Project {
+  image: ImageMetadata;
+  title: string;
+  description: string;
+  websiteUrl: string;
+  readMoreUrl: string;
+}
+
+const projects: Project[] = [
+  {
+    image: naminggenie,
+    title: 'NamingGenie',
+    description:
+      'Generates domain names which are available to register based on the description of the website.',
+    websiteUrl: 'https://naminggenie.com',
+    readMoreUrl: '/projects/naminggenie',
+  },
+  {
+    image: remotion,
+    title: 'Kineticx',
+    description:
+      'A tool for generating typography videos from descriptions in seconds, perfect for marketing, content creation, and presentations.',
+    websiteUrl: 'https://kineticx.vercel.app/dashboard',
+    readMoreUrl: '/projects/kineticx',
+  },
+  {
+    image: varshaagro2,
+    title: 'A Giveaway Website',
+    description:
+      "A website to help conduct giveaways in our family-run shop and also increase traffic to the shop's WhatsApp group and Facebook group.",
+    websiteUrl: 'https://varshaagro.vercel.app/',
+    readMoreUrl: '/projects/varshaagro',
+  },
+  {
+    image: cryptokids,
+    title: 'CryptoKids NFT',
+    description:
+      "An NFT project made when I didn't know coding, so the website was created in Wix.",
+    websiteUrl: '/',
+    readMoreUrl: '/projects/cryptokids',
+  },
+];
+---
+
+<div id="projects" class="w-full pt-16 flex flex-col gap-5">
+  <h2
+    class="max-w-3xl w-fit items-center scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0"
+  >
+    Featured Works
+  </h2>
+  <div class="flex w-full items-center justify-center flex-col">
+    {
+      projects.map((project) => (
+        <div class="fade-in-on-scroll w-full">
+          <div class="grid grid-rows-2 md:grid-rows-none md:grid-cols-2 bg-[#FFFFFF08] border-dashed border-2 my-3 p-3 rounded-[20px] border-neutral-600">
+            <Picture
+              src={project.image}
+              formats={['avif', 'webp']}
+              fallbackFormat="webp"
+              widths={[470, 940, project.image.width]}
+              sizes="(min-width: 768px) 470px, 90vw"
+              quality={90}
+              alt={project.title}
+              loading="lazy"
+              decoding="async"
+              class="w-full brightness-90 border-2 border-neutral-300 rounded-lg"
+            />
+            <div class="py-3 px-1 md:px-5 w-full flex flex-col justify-between">
+              <div class="w-full flex flex-col gap-3">
+                <h2 class="font-semibold text-2xl">{project.title}</h2>
+                <p class="w-[90%] md:text-lg text-neutral-400">
+                  {project.description}
+                </p>
+              </div>
+              <div class="w-full flex justify-center gap-3 text-xs md:text-sm items-center">
+                <a
+                  href={project.websiteUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="group relative inline-flex h-12 items-center justify-center rounded-full bg-neutral-800 px-3 md:px-6 font-medium text-neutral-200 transition-transform duration-150 ease-out active:scale-[0.96]"
+                >
+                  <span>Visit Website</span>
+                  <div class="relative ml-1 h-5 w-5 overflow-hidden">
+                    <ArrowUpRight class="absolute transition-transform ease-out duration-300 group-hover:rotate-45" />
+                  </div>
+                </a>
+                <a
+                  href={project.readMoreUrl}
+                  class="group relative inline-flex h-[calc(48px+8px)] items-center justify-center rounded-full bg-neutral-950 py-1 pl-6 pr-14 font-medium text-neutral-50 transition-transform duration-150 ease-out active:scale-[0.96]"
+                >
+                  <span class="z-10 pr-2 group-hover:text-black transition-colors ease-out duration-300">
+                    Read More
+                  </span>
+                  <div class="absolute right-1 inline-flex h-12 w-12 items-center justify-end rounded-full bg-greeen transition-[width] ease-out duration-300 group-hover:w-[calc(100%-8px)]">
+                    <ArrowRight class="mr-3.5 text-black" />
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>

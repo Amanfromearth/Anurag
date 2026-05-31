@@ -1,0 +1,54 @@
+---
+import { Image } from 'astro:assets';
+import logo from '@/assets/images/logo.webp';
+// Top navigation. Links play a click sound, then navigate after a short
+// delay so the sound is audible before the page transition.
+---
+
+<nav
+  class="w-full sticky top-0 z-30 h-16 flex items-center justify-between px-4 py-4 md:px-8 text-white md:text-xl bg-dark-blue border-b border-neutral-700"
+>
+  <a href="/#projects" class="nav-link group flex flex-col cursor-pointer">
+    Work
+    <div
+      class="w-0 h-[2px] bg-white group-hover:w-full transition-[width] ease-out duration-300"
+    >
+    </div>
+  </a>
+
+  <a href="/" class="nav-link h-full group" aria-label="Home">
+    <Image
+      class="h-full w-auto group-hover:rotate-180 transition-transform ease-in-out duration-500"
+      src={logo}
+      width={200}
+      height={200}
+      densities={[1, 2]}
+      quality={90}
+      alt="Logo"
+    />
+  </a>
+
+  <a href="/about" class="nav-link group flex flex-col cursor-pointer">
+    About me
+    <div
+      class="w-0 h-[2px] bg-white group-hover:w-full transition-[width] ease-out duration-300"
+    >
+    </div>
+  </a>
+</nav>
+
+<script>
+  import { playSound } from '@/lib/sound';
+
+  document.querySelectorAll<HTMLAnchorElement>('.nav-link').forEach((link) => {
+    link.addEventListener('click', (event) => {
+      const url = link.getAttribute('href');
+      if (!url) return;
+      event.preventDefault();
+      playSound();
+      window.setTimeout(() => {
+        window.location.href = url;
+      }, 300);
+    });
+  });
+</script>

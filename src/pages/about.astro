@@ -1,0 +1,130 @@
+---
+import { Picture, getImage } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+import Layout from '@/layouts/Layout.astro';
+import SkillCard from '@/components/SkillCard.astro';
+import EducationItem from '@/components/EducationItem.astro';
+import ImageGallery, {
+  type GalleryImage,
+} from '@/components/react/ImageGallery.tsx';
+import profilePic from '@/assets/images/profile-pic2.jpg';
+
+// Eagerly import every gallery image so Astro can optimise them at build time,
+// then hand the React island ready-made responsive srcsets.
+const galleryModules = import.meta.glob<{ default: ImageMetadata }>(
+  '@/assets/gallery/*.{webp,jpg,jpeg,png}',
+  { eager: true },
+);
+
+const images: GalleryImage[] = await Promise.all(
+  Object.entries(galleryModules)
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(async ([filepath, mod]) => {
+      const img = mod.default;
+      const optimized = await getImage({
+        src: img,
+        format: 'webp',
+        quality: 90,
+        widths: [460, 920, Math.min(1380, img.width)],
+        sizes: '(min-width: 640px) 460px, 100vw',
+      });
+      const filename = filepath.split('/').pop() ?? '';
+      return {
+        src: optimized.src,
+        srcSet: optimized.srcSet.attribute,
+        width: img.width,
+        height: img.height,
+        alt: filename.replace(/\.[^/.]+$/, ''),
+      };
+    }),
+);
+
+const skills = [
+  { category: 'Frontend', skills: ['ReactJs', 'NextJs'] },
+  { category: 'Backend', skills: ['NodeJs', 'ExpressJs'] },
+  { category: 'Styling', skills: ['CSS', 'TailwindCSS', 'Framer Motion'] },
+  { category: 'Project Management', skills: ['GitHub'] },
+  { category: 'State Management', skills: ['Zustand'] },
+  { category: 'Database Management', skills: ['PrismaORM (PostgreSQL)'] },
+];
+---
+
+<Layout
+  title="Anurag's Dev Portfolio"
+  description="Experienced full-stack developer specializing in scalable web applications and project leadership. Driven by a passion for cutting-edge technologies and creating innovative solutions to real-world problems."
+  canonical="/about"
+>
+  <section class="w-full">
+    <div class="w-full border-b border-neutral-500">
+      <Picture
+        src={profilePic}
+        formats={['avif', 'webp']}
+        fallbackFormat="webp"
+        widths={[640, 940, 1410, 1880, profilePic.width]}
+        sizes="(min-width: 1024px) 940px, 100vw"
+        quality={90}
+        alt="Anurag Bevinal's Photo"
+        loading="eager"
+        fetchpriority="high"
+        class="w-full h-auto outline outline-1 -outline-offset-1 outline-white/10"
+      />
+    </div>
+    <div
+      class="space-y-10 p-8 mt-8 w-full leading-7 text-black dark:text-slate-300 text-lg"
+    >
+      <div class="space-y-10">
+        <div class="space-y-6 text-lg max-w-3xl">
+          <h1 class="text-3xl font-semibold text-black dark:text-white">
+            Hello, I'm Anurag
+          </h1>
+          <p>
+            Over the past two years as a developer, I've built web-startups and
+            co-founded Zlock Technologies Pvt Ltd. My journey has equipped me
+            with a diverse set of skills.
+          </p>
+          <p>
+            I'm deeply passionate about using technology to address real-world
+            challenges, dedicated to developing user-friendly, scalable
+            applications that cater to the needs of users and businesses.
+          </p>
+          <p>
+            My experience has sharpened my ability to innovate and adapt in
+            dynamic environments, propelling solutions that deliver tangible
+            results.
+          </p>
+        </div>
+        <div class="space-y-6 text-black dark:text-slate-200">
+          <h2
+            class="text-3xl font-semibold text-black dark:text-white border-b pb-2"
+          >
+            Skills
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {skills.map((skill) => <SkillCard {...skill} />)}
+          </div>
+        </div>
+        <div class="space-y-6 text-black dark:text-slate-200">
+          <h2
+            class="text-3xl w-fit font-semibold text-black dark:text-white border-b pb-2"
+          >
+            Education
+          </h2>
+          <div class="space-y-4">
+            <EducationItem
+              degree="Bachelor of Engineering - Electronics and Communication"
+              institution="Ramaiah Institute of Technology"
+              period="2019-2023"
+            />
+            <EducationItem
+              degree="Pre University - PCMS"
+              institution="Expert PU College"
+              period="2017-2019"
+            />
+          </div>
+        </div>
+      </div>
+      <ImageGallery client:visible initialImages={images} />
+    </div>
+  </section>
+</Layout>
