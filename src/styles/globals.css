@@ -262,3 +262,43 @@
     display: none;
   }
 }
+
+/*
+  Page-switch transition for the ClientRouter — a soft, sequenced crossfade.
+
+  Opacity only, no transform: the fixed radial-gradient background is identical
+  on every page, so animating the whole `root` snapshot's position would only
+  drag that large gradient around (heavy, janky) for no visual payoff. Fading
+  is GPU-cheap and reads as the content quietly dissolving.
+
+  The outgoing page leaves a touch faster than the incoming arrives, and the
+  incoming fade is delayed just past the outgoing one so the two don't stack
+  into a muddy double-exposure mid-transition. Unlayered so it wins over the
+  router's default fade.
+*/
+::view-transition-old(root) {
+  animation: page-fade-out 260ms cubic-bezier(0.4, 0, 1, 1) both;
+}
+::view-transition-new(root) {
+  animation: page-fade-in 420ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 90ms;
+}
+
+@keyframes page-fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes page-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+  }
+}

@@ -37,15 +37,21 @@ import { ArrowUp } from 'lucide-astro';
   import { playSound } from '@/lib/sound';
   import { openContactDrawer } from '@/lib/contact';
 
-  document.getElementById('back-to-top')?.addEventListener('click', () => {
-    playSound();
-    document
-      .getElementById('scrollable-content')
-      ?.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+  // The Footer is swapped on every client-side navigation, so re-bind its
+  // buttons on each astro:page-load (also fires on the initial load).
+  function bindFooter() {
+    document.getElementById('back-to-top')?.addEventListener('click', () => {
+      playSound();
+      document
+        .getElementById('scrollable-content')
+        ?.scrollTo({ top: 0, behavior: 'smooth' });
+    });
 
-  document.getElementById('footer-contact')?.addEventListener('click', () => {
-    playSound();
-    openContactDrawer();
-  });
+    document.getElementById('footer-contact')?.addEventListener('click', () => {
+      playSound();
+      openContactDrawer();
+    });
+  }
+
+  document.addEventListener('astro:page-load', bindFooter);
 </script>

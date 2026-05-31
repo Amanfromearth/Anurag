@@ -1,0 +1,17 @@
+{
+  "name": "Anurag Bevinal's Portfolio",
+  "short_name": "Anurag",
+  "description": "Full-stack developer portfolio showcasing projects and skills.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#040814",
+  "theme_color": "#040814",
+  "icons": [
+    {
+      "src": "/Anurag.webp",
+      "sizes": "2732x2732",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    }
+  ]
+}

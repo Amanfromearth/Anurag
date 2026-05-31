@@ -39,16 +39,25 @@ import logo from '@/assets/images/logo.webp';
 
 <script>
   import { playSound } from '@/lib/sound';
+  import { navigate } from 'astro:transitions/client';
 
-  document.querySelectorAll<HTMLAnchorElement>('.nav-link').forEach((link) => {
-    link.addEventListener('click', (event) => {
-      const url = link.getAttribute('href');
-      if (!url) return;
-      event.preventDefault();
-      playSound();
-      window.setTimeout(() => {
-        window.location.href = url;
-      }, 300);
+  // The Nav is swapped on every client-side navigation, so its links are fresh
+  // each time and must be re-bound. astro:page-load fires on the initial load
+  // and after every view transition.
+  function bindNavLinks() {
+    document.querySelectorAll<HTMLAnchorElement>('.nav-link').forEach((link) => {
+      link.addEventListener('click', (event) => {
+        const url = link.getAttribute('href');
+        if (!url) return;
+        event.preventDefault();
+        // Fire the sound and the transition together: navigating immediately
+        // keeps the click feeling responsive, and the sound plays over the
+        // (longer) crossfade rather than gating it behind a dead delay.
+        playSound();
+        navigate(url);
+      });
     });
-  });
+  }
+
+  document.addEventListener('astro:page-load', bindNavLinks);
 </script>

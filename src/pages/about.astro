@@ -20,7 +20,7 @@ const galleryModules = import.meta.glob<{ default: ImageMetadata }>(
 const images: GalleryImage[] = await Promise.all(
   Object.entries(galleryModules)
     .sort(([a], [b]) => a.localeCompare(b))
-    .map(async ([filepath, mod]) => {
+    .map(async ([, mod], index) => {
       const img = mod.default;
       const optimized = await getImage({
         src: img,
@@ -29,13 +29,13 @@ const images: GalleryImage[] = await Promise.all(
         widths: [460, 920, Math.min(1380, img.width)],
         sizes: '(min-width: 640px) 460px, 100vw',
       });
-      const filename = filepath.split('/').pop() ?? '';
       return {
         src: optimized.src,
         srcSet: optimized.srcSet.attribute,
         width: img.width,
         height: img.height,
-        alt: filename.replace(/\.[^/.]+$/, ''),
+        // Raw camera filenames make terrible alt text — use a human, indexed label.
+        alt: `Photo from Anurag Bevinal's personal gallery (${index + 1})`,
       };
     }),
 );
@@ -54,6 +54,7 @@ const skills = [
   title="Anurag's Dev Portfolio"
   description="Experienced full-stack developer specializing in scalable web applications and project leadership. Driven by a passion for cutting-edge technologies and creating innovative solutions to real-world problems."
   canonical="/about"
+  ogType="profile"
 >
   <section class="w-full">
     <div class="w-full border-b border-neutral-500">

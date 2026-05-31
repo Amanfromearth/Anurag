@@ -10,7 +10,21 @@ export default defineConfig({
   site: 'https://anurag.be',
   integrations: [
     react(),
-    sitemap(),
+    sitemap({
+      changefreq: 'monthly',
+      lastmod: new Date(),
+      // The home page is the most important entry point; weight it highest.
+      serialize(item) {
+        if (item.url === 'https://anurag.be/') {
+          item.priority = 1.0;
+        } else if (item.url.includes('/projects/')) {
+          item.priority = 0.7;
+        } else {
+          item.priority = 0.8;
+        }
+        return item;
+      },
+    }),
     // Run Google Analytics off the main thread for a faster page.
     partytown({ config: { forward: ['dataLayer.push', 'gtag'] } }),
   ],

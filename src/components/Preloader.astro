@@ -1,0 +1,179 @@
+---
+// Multilingual greeting preloader. A dark curtain (matching the site theme)
+// shows cycling greetings, then a curved bottom edge flattens as the whole
+// curtain slides up to reveal the page. Ported from a GSAP source to vanilla
+// JS (Web Animations API + requestAnimationFrame) since this project has no
+// GSAP. Plays once per session and is skipped for reduced-motion users.
+// Greetings across major Indian languages.
+const words = [
+  'Hello',
+  'ನಮಸ್ಕಾರ', // Kannada
+  'नमस्ते', // Hindi
+  'నమస్కారం', // Telugu
+  'வணக்கம்', // Tamil
+  'നമസ്കാരം', // Malayalam
+  'নমস্কার', // Bengali
+  'નમસ્તે', // Gujarati
+  'ਸਤ ਸ੍ਰੀ ਅਕਾਲ', // Punjabi
+  'ನಮಸ್ಕಾರ', // Kannada (reprise — the reveal lands on the author's language)
+];
+---
+
+<div
+  id="preloader"
+  aria-hidden="true"
+  class="fixed inset-0 z-[100] flex items-center justify-center bg-dark-blue"
+>
+  <p
+    id="preloader-word"
+    class="relative z-10 font-sans font-semibold leading-none text-white opacity-0 text-[40px] sm:text-[56px] md:text-[60px]"
+  >
+    {words[0]}
+  </p>
+  <svg
+    id="preloader-svg"
+    class="absolute left-0 top-0 h-[calc(100%+300px)] w-full"
+    preserveAspectRatio="none"
+    aria-hidden="true"
+  >
+    <path id="preloader-path" fill="rgb(12, 13, 17)"></path>
+  </svg>
+</div>
+
+<!-- Synchronous pre-paint skip for reduced-motion users (no flash). -->
+<script is:inline>
+  try {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.getElementById('preloader')?.remove();
+    }
+  } catch (_) {}
+</script>
+
+<script>
+  const WORDS = [
+    'Hello',
+    'ನಮಸ್ಕಾರ', // Kannada
+    'नमस्ते', // Hindi
+    'నమస్కారం', // Telugu
+    'வணக்கம்', // Tamil
+    'നമസ്കാരം', // Malayalam
+    'নমস্কার', // Bengali
+    'નમસ્તે', // Gujarati
+    'ਸਤ ਸ੍ਰੀ ਅਕਾਲ', // Punjabi
+    'ನಮಸ್ಕಾರ', // Kannada (reprise — the reveal lands on the author's language)
+  ];
+
+  // Plays on every full page load/refresh, but not on in-session client-side
+  // (View Transitions) navigations — this module only re-executes on a real
+  // document load, and `played` suppresses the curtain on router swaps.
+  let played = false;
+
+  // ~ GSAP power4.inOut (quintic in-out), for the requestAnimationFrame morph.
+  const easeInOutQuint = (t: number) =>
+    t < 0.5 ? 16 * t * t * t * t * t : 1 - Math.pow(-2 * t + 2, 5) / 2;
+
+  // Minimal rAF tween: drives `onUpdate(easedProgress)` from 0→1 over `duration`.
+  function tween(
+    duration: number,
+    delay: number,
+    onUpdate: (e: number) => void,
+    onComplete?: () => void,
+  ) {
+    let start: number | undefined;
+    const step = (now: number) => {
+      if (start === undefined) start = now;
+      const elapsed = now - start - delay;
+      if (elapsed < 0) return void requestAnimationFrame(step);
+      const t = Math.min(elapsed / duration, 1);
+      onUpdate(easeInOutQuint(t));
+      if (t < 1) requestAnimationFrame(step);
+      else onComplete?.();
+    };
+    requestAnimationFrame(step);
+  }
+
+  function runPreloader() {
+    const el = document.getElementById('preloader');
+    if (!el) return; // not on this page, or already removed pre-paint
+    const wordEl = document.getElementById('preloader-word');
+    const pathEl = document.getElementById('preloader-path');
+    if (!wordEl || !pathEl) return;
+
+    // The page scrolls inside #scrollable-content, not the document.
+    const scroller = document.getElementById('scrollable-content');
+
+    const finish = () => {
+      el.remove();
+      if (scroller) scroller.style.overflow = '';
+    };
+
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce || played) {
+      finish();
+      return;
+    }
+    played = true;
+
+    // Lock scroll while the curtain is up.
+    if (scroller) scroller.style.overflow = 'hidden';
+
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+    const buildPath = (cp: number) =>
+      `M0 0 L${w} 0 L${w} ${h} Q${w / 2} ${cp} 0 ${h} L0 0`;
+
+    pathEl.setAttribute('d', buildPath(h + 300));
+    wordEl.animate([{ opacity: 0 }, { opacity: 1 }], {
+      duration: 1000,
+      delay: 200,
+      fill: 'forwards',
+    });
+
+    // Cycle the greetings: long hold on the first, then a quick cadence.
+    let i = 0;
+    const advance = () => {
+      if (i >= WORDS.length - 1) {
+        window.setTimeout(exit, 550);
+        return;
+      }
+      i += 1;
+      wordEl.textContent = WORDS[i];
+      window.setTimeout(advance, 150);
+    };
+    window.setTimeout(advance, 1000);
+
+    function exit() {
+      // Flatten the curved bottom edge (cp: h+300 → h)...
+      tween(700, 300, (e) =>
+        pathEl!.setAttribute('d', buildPath(h + 300 - 300 * e)),
+      );
+      wordEl!.animate([{ opacity: 1 }, { opacity: 0 }], {
+        duration: 400,
+        fill: 'forwards',
+      });
+      // ...and slide the whole curtain up off-screen.
+      const slide = el!.animate(
+        [{ transform: 'translateY(0)' }, { transform: 'translateY(-100%)' }],
+        {
+          duration: 800,
+          delay: 200,
+          easing: 'cubic-bezier(0.76, 0, 0.24, 1)',
+          fill: 'forwards',
+        },
+      );
+      slide.onfinish = finish;
+    }
+  }
+
+  document.addEventListener('astro:page-load', runPreloader);
+
+  // After an in-session router swap, drop the curtain markup early (before
+  // paint) so navigating back home never flashes the overlay.
+  document.addEventListener('astro:after-swap', () => {
+    if (played) {
+      document.getElementById('preloader')?.remove();
+      const scroller = document.getElementById('scrollable-content');
+      if (scroller) scroller.style.overflow = '';
+    }
+  });
+</script>

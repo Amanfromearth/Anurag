@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import Layout from '@/layouts/Layout.astro';
+import { SITE, absoluteUrl } from '@/lib/site';
 import '@/styles/blog.css';
 
 export async function getStaticPaths() {
@@ -13,12 +14,51 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await render(entry);
+
+const projectUrl = absoluteUrl(`/projects/${entry.id}`);
+
+// Per-page structured data: an Article that credits the author, plus a
+// breadcrumb trail so search engines render the Home › Projects › … path.
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: entry.data.Metatitle,
+    description: entry.data.Metadescription,
+    image: absoluteUrl(SITE.ogImage),
+    url: projectUrl,
+    mainEntityOfPage: projectUrl,
+    author: { '@id': `${SITE.url}/#person` },
+    publisher: { '@id': `${SITE.url}/#person` },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: SITE.url },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Work',
+        item: absoluteUrl('/#projects'),
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: entry.data.Metatitle,
+        item: projectUrl,
+      },
+    ],
+  },
+];
 ---
 
 <Layout
   title={entry.data.Metatitle}
   description={entry.data.Metadescription}
   canonical={`/projects/${entry.id}`}
+  ogType="article"
+  jsonLd={jsonLd}
 >
   <section class="w-full h-full">
     <div
