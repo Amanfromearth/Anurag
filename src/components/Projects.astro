@@ -89,7 +89,7 @@ const projects: Project[] = [
                   rel="noopener noreferrer"
                   class="group relative inline-flex h-12 items-center justify-center rounded-full bg-neutral-800 px-3 md:px-6 font-medium text-neutral-200 transition-transform duration-150 ease-out active:scale-[0.96]"
                 >
-                  <span>Visit Website</span>
+                  <span>Visit Website<span class="sr-only"> for {project.title}</span></span>
                   <div class="relative ml-1 h-5 w-5 overflow-hidden">
                     <ArrowUpRight class="absolute transition-transform ease-out duration-300 group-hover:rotate-45" />
                   </div>
@@ -99,7 +99,7 @@ const projects: Project[] = [
                   class="group relative inline-flex h-[calc(48px+8px)] items-center justify-center rounded-full bg-neutral-950 py-1 pl-6 pr-14 font-medium text-neutral-50 transition-transform duration-150 ease-out active:scale-[0.96]"
                 >
                   <span class="z-10 pr-2 group-hover:text-black transition-colors ease-out duration-300">
-                    Read More
+                    Read More<span class="sr-only"> about {project.title}</span>
                   </span>
                   <div class="absolute right-1 inline-flex h-12 w-12 items-center justify-end rounded-full bg-greeen transition-[width] ease-out duration-300 group-hover:w-[calc(100%-8px)]">
                     <ArrowRight class="mr-3.5 text-black" />
