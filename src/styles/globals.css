@@ -3,7 +3,12 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --color-greeen: #c8ff54;
+  /*
+    Accent, keyed to the FoldGradient backdrop's blue register (it sits
+    between the wallpaper's azure and ice stops) so every interactive
+    highlight reads as lifted from the artwork behind it.
+  */
+  --color-glow: #00c2ff;
   --color-dark-blue: rgb(12, 13, 17);
   --color-border: hsl(var(--border));
   --color-input: hsl(var(--input));
@@ -96,7 +101,72 @@
 
 @layer utilities {
   .gloww:hover {
-    box-shadow: 0 0 30px 10px rgba(200, 255, 84, 0.4);
+    box-shadow: 0 0 30px 10px
+      color-mix(in srgb, var(--color-glow) 35%, transparent);
+  }
+
+  /*
+    Static echo of the FoldGradient shader backdrop — same near-black base with
+    faint azure/red bleed. Shown before the WebGL island hydrates (and forever
+    if WebGL is unavailable), so the page never sits on a flat void.
+  */
+  .backdrop-base {
+    background:
+      radial-gradient(
+        60% 55% at 85% 6%,
+        rgba(255, 54, 38, 0.09),
+        transparent 70%
+      ),
+      radial-gradient(
+        70% 60% at 10% 95%,
+        rgba(0, 140, 255, 0.12),
+        transparent 70%
+      ),
+      #121212;
+  }
+
+  /* Fades the shader canvas in over .backdrop-base once it mounts. */
+  .animate-backdrop-in {
+    animation: backdrop-in 1.6s ease-out both;
+  }
+
+  @keyframes backdrop-in {
+    from {
+      opacity: 0;
+    }
+  }
+
+  /*
+    The content column: dark glass over the shader. More translucent across
+    the first ~34rem (the hero band) so the light sheets glow behind the
+    headline, then settles to near-opaque for long-form readability. The
+    blur turns whatever drifts behind the panel into a soft colour wash
+    instead of competing detail.
+
+    Below lg the panel spans the whole viewport (no wallpaper margins), so
+    the glass IS the page on phones: run the tint darker there for a richer
+    base and crisper text, leaving just a soft shader glow in the hero band.
+    From lg up, the floating-card layout lightens it so the wallpaper reads
+    through the glass.
+  */
+  .glass-panel {
+    background: linear-gradient(
+      to bottom,
+      rgb(12 13 17 / 0.78),
+      rgb(12 13 17 / 0.94) 34rem
+    );
+    -webkit-backdrop-filter: blur(22px);
+    backdrop-filter: blur(22px);
+  }
+
+  @media (width >= --theme(--breakpoint-lg)) {
+    .glass-panel {
+      background: linear-gradient(
+        to bottom,
+        rgb(12 13 17 / 0.62),
+        rgb(12 13 17 / 0.88) 34rem
+      );
+    }
   }
 
   /*
@@ -226,6 +296,12 @@
     @apply bg-background text-foreground;
   }
 
+  /* Text selection picks up the accent token. */
+  ::selection {
+    background: color-mix(in srgb, var(--color-glow) 30%, transparent);
+    color: white;
+  }
+
   /* Even line lengths on short text; avoid orphans in body copy. */
   h1,
   h2,
@@ -266,10 +342,10 @@
 /*
   Page-switch transition for the ClientRouter — a soft, sequenced crossfade.
 
-  Opacity only, no transform: the fixed radial-gradient background is identical
-  on every page, so animating the whole `root` snapshot's position would only
-  drag that large gradient around (heavy, janky) for no visual payoff. Fading
-  is GPU-cheap and reads as the content quietly dissolving.
+  Opacity only, no transform: the fixed shader backdrop is persisted (same
+  element on every page), so animating the whole `root` snapshot's position
+  would only drag that large canvas around (heavy, janky) for no visual
+  payoff. Fading is GPU-cheap and reads as the content quietly dissolving.
 
   The outgoing page leaves a touch faster than the incoming arrives, and the
   incoming fade is delayed just past the outgoing one so the two don't stack

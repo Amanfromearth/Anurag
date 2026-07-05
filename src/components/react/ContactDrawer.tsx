@@ -72,7 +72,7 @@ export default function ContactDrawer() {
         }`}
       >
         <div className="relative inline-flex h-12 overflow-hidden rounded-full p-px focus:outline-hidden focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
-          <span className="absolute inset-[-1000%] z-30 animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#C8FF54_0%,#393BB2_50%,#C8FF54_100%)]" />
+          <span className="absolute inset-[-1000%] z-30 animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,var(--color-glow)_0%,#393BB2_50%,var(--color-glow)_100%)]" />
           <span className="inline-flex z-40 h-full w-full cursor-pointer items-center justify-center rounded-full bg-dark-blue px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl">
             Contact/Resume
           </span>

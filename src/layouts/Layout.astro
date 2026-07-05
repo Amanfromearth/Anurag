@@ -9,6 +9,7 @@ import Nav from '@/components/Nav.astro';
 import Footer from '@/components/Footer.astro';
 import GlowingStarsCta from '@/components/react/GlowingStarsCta.tsx';
 import ContactDrawer from '@/components/react/ContactDrawer.tsx';
+import ShaderBackdrop from '@/components/react/ShaderBackdrop.tsx';
 
 interface Props {
   title: string;
@@ -126,13 +127,28 @@ const structuredData = [personJsonLd, websiteJsonLd, ...jsonLd];
 
   <body class="font-sans relative">
     <Preloader />
+    <!--
+      Full-bleed animated backdrop: the FoldGradient shader (domain-warped
+      light sheets). The wrapper paints a static gradient echo of the shader
+      so pre-hydration and no-WebGL visitors still get the mood, and it is
+      persisted across view transitions so the animation never restarts
+      mid-session. Content floats above it as a dark glass panel.
+    -->
     <div
-      class="fixed inset-0 hidden md:block h-screen -z-10 bg-[radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"
+      class="backdrop-base fixed inset-0 -z-10"
+      transition:persist="app-backdrop"
+      aria-hidden="true"
     >
+      <ShaderBackdrop client:only="react" />
     </div>
     <div id="scrollable-content" class="h-screen overflow-y-auto">
+      <!--
+        overflow-clip (not overflow-hidden: that would turn main into a scroll
+        container and break the sticky Nav) clips children to the rounded
+        corners, so the square-cornered Nav/Footer never poke past the radius.
+      -->
       <main
-        class="relative text-white mx-auto w-full lg:w-[940px] lg:mt-28 bg-dark-blue rounded border border-neutral-700"
+        class="glass-panel relative overflow-clip text-white mx-auto w-full lg:w-[940px] lg:my-28 lg:rounded-2xl border border-white/10 shadow-[0_32px_96px_-24px_rgba(0,0,0,0.85)]"
       >
         <Nav />
         <slot />

@@ -62,7 +62,7 @@ const projects: Project[] = [
     {
       projects.map((project) => (
         <div class="fade-in-on-scroll w-full">
-          <div class="grid grid-rows-2 md:grid-rows-none md:grid-cols-2 bg-[#FFFFFF08] border-dashed border-2 my-3 p-3 rounded-[20px] border-neutral-600">
+          <div class="grid grid-rows-2 md:grid-rows-none md:grid-cols-2 bg-white/5 border my-3 p-3 rounded-[20px] border-white/10">
             <Picture
               src={project.image}
               formats={['avif', 'webp']}
@@ -73,7 +73,7 @@ const projects: Project[] = [
               alt={project.title}
               loading="lazy"
               decoding="async"
-              class="w-full brightness-90 border-2 border-neutral-300 rounded-lg"
+              class="w-full brightness-90 border border-white/15 rounded-lg"
             />
             <div class="py-3 px-1 md:px-5 w-full flex flex-col justify-between">
               <div class="w-full flex flex-col gap-3">
@@ -101,7 +101,7 @@ const projects: Project[] = [
                   <span class="z-10 pr-2 group-hover:text-black transition-colors ease-out duration-300">
                     Read More<span class="sr-only"> about {project.title}</span>
                   </span>
-                  <div class="absolute right-1 inline-flex h-12 w-12 items-center justify-end rounded-full bg-greeen transition-[width] ease-out duration-300 group-hover:w-[calc(100%-8px)]">
+                  <div class="absolute right-1 inline-flex h-12 w-12 items-center justify-end rounded-full bg-glow transition-[width] ease-out duration-300 group-hover:w-[calc(100%-8px)]">
                     <ArrowRight class="mr-3.5 text-black" />
                   </div>
                 </a>

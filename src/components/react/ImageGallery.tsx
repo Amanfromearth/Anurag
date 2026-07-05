@@ -72,7 +72,7 @@ export default function ImageGallery({
             <span className="z-10 pr-2 group-hover:text-black transition-colors ease-in-out duration-300">
               Load More
             </span>
-            <div className="absolute right-1 inline-flex h-12 w-12 items-center justify-end rounded-full bg-greeen transition-[width] ease-in-out duration-300 group-hover:w-[calc(100%-8px)]">
+            <div className="absolute right-1 inline-flex h-12 w-12 items-center justify-end rounded-full bg-glow transition-[width] ease-in-out duration-300 group-hover:w-[calc(100%-8px)]">
               <ArrowRight className="mr-3.5 text-black" />
             </div>
           </button>

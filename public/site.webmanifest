@@ -4,8 +4,8 @@
   "description": "Full-stack developer portfolio showcasing projects and skills.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#040814",
-  "theme_color": "#040814",
+  "background_color": "#121212",
+  "theme_color": "#0c0d11",
   "icons": [
     {
       "src": "/Anurag.webp",

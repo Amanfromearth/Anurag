@@ -16,7 +16,7 @@ export const SITE = {
   locale: 'en_US',
   twitter: '@amanfromearth_',
   gaId: 'G-E0FKVBGVHZ',
-  themeColor: '#040814',
+  themeColor: '#0c0d11',
   /** Profiles linked via schema.org `sameAs` so search engines connect them. */
   socials: {
     github: 'https://github.com/Amanfromearth',

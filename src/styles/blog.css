@@ -58,7 +58,7 @@
 
 .blog-content a {
   font-weight: 500;
-  color: var(--primary-color);
+  color: var(--color-glow);
   text-decoration: underline;
   text-underline-offset: 4px;
 }

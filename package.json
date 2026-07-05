@@ -19,6 +19,7 @@
     "@astrojs/react": "^5.0.6",
     "@astrojs/sitemap": "^3.7.3",
     "@fontsource-variable/dm-sans": "^5.2.8",
+    "@paper-design/shaders-react": "^0.0.77",
     "@radix-ui/react-slot": "^1.2.4",
     "astro": "^6.4.2",
     "class-variance-authority": "^0.7.1",
