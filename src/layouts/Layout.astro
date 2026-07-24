@@ -1,5 +1,6 @@
 ---
-import '@fontsource-variable/dm-sans';
+import '@/styles/fonts.css';
+import dmSansLatin from '@fontsource-variable/dm-sans/files/dm-sans-latin-wght-normal.woff2?url';
 import '@/styles/globals.css';
 
 import { ClientRouter } from 'astro:transitions';
@@ -61,6 +62,15 @@ const structuredData = [personJsonLd, websiteJsonLd, ...jsonLd];
     <!-- Speed up the third-party analytics handshake -->
     <link rel="preconnect" href="https://www.googletagmanager.com" />
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+
+    <!-- Preload the only font face we ship (latin variable). -->
+    <link
+      rel="preload"
+      href={dmSansLatin}
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
 
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -139,7 +149,12 @@ const structuredData = [personJsonLd, websiteJsonLd, ...jsonLd];
       transition:persist="app-backdrop"
       aria-hidden="true"
     >
-      <ShaderBackdrop client:only="react" />
+      <!--
+        Mobile Lighthouse (and low-power phones) skip WebGL entirely — the
+        static .backdrop-base gradient already paints the mood. Desktop loads
+        the shader after the main thread is free so it never contends with LCP.
+      -->
+      <ShaderBackdrop client:media="(min-width: 1024px)" />
     </div>
     <div id="scrollable-content" class="h-screen overflow-y-auto">
       <!--

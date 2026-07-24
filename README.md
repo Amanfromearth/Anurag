@@ -45,11 +45,12 @@ src/
 
 ### Interactivity
 
-Following an islands-first approach, most of the UI is static HTML/CSS. Only three
-components hydrate on the client:
+Following an islands-first approach, most of the UI is static HTML/CSS. Only a
+few components hydrate on the client:
 
-- `ContactDrawer` (vaul) — the contact/resume drawer
-- `GlowingStarsCta` (framer-motion) — the animated CTA
+- `ContactDrawer` (vaul) — the contact/resume drawer (`client:idle`)
+- `GlowingStarsCta` (framer-motion) — the animated CTA (`client:visible`)
+- `ShaderBackdrop` — WebGL wallpaper, desktop only (`client:media`)
 - `ImageGallery` — the load-more photo gallery
 
 Vanilla pieces (nav/footer click sounds, scroll-driven fade-ins, the skills orbit,

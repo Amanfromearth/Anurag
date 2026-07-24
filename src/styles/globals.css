@@ -4,11 +4,10 @@
 
 @theme {
   /*
-    Accent, keyed to the FoldGradient backdrop's blue register (it sits
-    between the wallpaper's azure and ice stops) so every interactive
-    highlight reads as lifted from the artwork behind it.
+    Accent — the original lime (#c8ff54). Buttons, CTA glow, links, and
+    brand marks all key off this token.
   */
-  --color-glow: #00c2ff;
+  --color-glow: #c8ff54;
   --color-dark-blue: rgb(12, 13, 17);
   --color-border: hsl(var(--border));
   --color-input: hsl(var(--input));
@@ -101,8 +100,7 @@
 
 @layer utilities {
   .gloww:hover {
-    box-shadow: 0 0 30px 10px
-      color-mix(in srgb, var(--color-glow) 35%, transparent);
+    box-shadow: 0 0 30px 10px rgba(200, 255, 84, 0.4);
   }
 
   /*
@@ -128,6 +126,29 @@
   /* Fades the shader canvas in over .backdrop-base once it mounts. */
   .animate-backdrop-in {
     animation: backdrop-in 1.6s ease-out both;
+  }
+
+  /*
+    The FoldGradient shader (paper-design) sizes its <canvas> via a <style>
+    element it injects into <head> at runtime. Astro's ClientRouter strips
+    every non-persisted <head> node on the first page swap, so that injected
+    style disappears after navigating - while the backdrop canvas itself lives
+    on (transition:persist) with no layout left, collapsing to a small box in
+    the top-left. Re-declaring the same full-bleed rules here (this stylesheet
+    ships in every page's head, so it survives swaps) keeps the canvas covering
+    the viewport across navigations.
+  */
+  [data-paper-shader] {
+    position: relative;
+    isolation: isolate;
+  }
+  [data-paper-shader] canvas {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
   }
 
   @keyframes backdrop-in {

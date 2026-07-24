@@ -3,6 +3,7 @@ import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import partytown from '@astrojs/partytown';
+import compress from '@playform/compress';
 import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
@@ -27,6 +28,14 @@ export default defineConfig({
     }),
     // Run Google Analytics off the main thread for a faster page.
     partytown({ config: { forward: ['dataLayer.push', 'gtag'] } }),
+    // Minify HTML/CSS/JS in the final build (images already handled by Astro).
+    compress({
+      CSS: true,
+      HTML: true,
+      JavaScript: true,
+      Image: false,
+      SVG: false,
+    }),
   ],
   vite: {
     plugins: [tailwindcss()],
